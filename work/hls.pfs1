@@ -1,0 +1,18 @@
+PLOT_FILES
+program_helios_[job_no_1]
+
+cwp1    [cw power]
+att1    [attenuation]
+shm1    [side_heat_current, mantle]
+ti1     [temperature, inner conductor]
+to1     [temperature, outer conductor]
+tm1     [temperature, mantle]
+tsdm1   [ side temperature, mantle ]
+tmxm1   [maximum temperature, mantle]
+lt1     [total losses]
+li1     [losses, inner conductor]
+lo1     [losses, outer conductor]
+sdm1    [side_heat_outflow_density,_mantle]
+
+graphics log created
+Sat Dec 18 21:00:15 2021

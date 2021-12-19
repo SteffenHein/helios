@@ -1,0 +1,184 @@
+/* [ file: CONFIG.H ] */
+/*----------------------------------------------------------------------------*/
+/*  HELIOS [ Heat and Electric Losses In Ordinary wave guiding Structures ],  */
+/*  release v1.0r1                                                            */
+/*                                                                            */
+/*  (C) SHEIN; Munich, December 2021                        Steffen Hein      */
+/*  [ Update: December 17, 2021 ]                        <contact@sfenx.de>   */
+/*----------------------------------------------------------------------------*/
+# define HELIOS_RELEASE "v1.0r1"
+# define HELIOS_UPDATE "2021-12-17"
+/*----------------------------------------------------------------------------*/
+# define NODES   20 /* the maximum number of temperature nodes */
+# define OPERATS 15 /* the maximum number of computation modes */
+# define PARMTRS 80 /* the maximum number of [ physical ] parameters */
+# define CMETALS 30 /* the maximum number of [ conductor ] metals */
+# define DIELCTS 30 /* the maximum number of dielectric materials */
+# define SLDMTRS 30 /* the maximum number of [ e.g. mantle ] solid materials */
+# define COOLFLS 10 /* the maximum number of cooling fluids */
+# define FREQPTS 100 /* maximum number of frequency points */
+/*----------------------------------------------------------------------------*/
+# ifndef HLS_PAGER
+   # define HLS_PAGER "more" 
+# endif
+/* editor command: "vi", "vim", "ed", "joe", "emacs", e.g. */
+# ifndef HLS_EDITOR
+   # define HLS_EDITOR "vi"
+# endif
+/* printer: "lp", e.g. */
+# ifndef HLS_PRINTER
+   # define HLS_PRINTER "lp"
+# endif
+/*----------------------------------------------------------------------------*/
+# define USE_UNICODE 1 
+# define USE_NCURSES 1 
+/*............................................................................*/
+/* different 'my_terminal' configurations [ for ANSI C compiler, */
+/* generic Unix, etc. ] */
+# if defined ( _Wine )
+   # undef USE_NCURSES
+   # define USE_NCURSES 0 
+# elif defined ( _Unix )
+   # undef USE_NCURSES
+   # define USE_NCURSES 0
+# elif defined ( _BSD )
+   # undef USE_NCURSES
+   # define USE_NCURSES 0
+# elif defined ( _GNU_Linux )
+   # undef USE_NCURSES
+   # define USE_NCURSES 0
+# elif defined ( _Linux )
+   # undef USE_NCURSES
+   # define USE_NCURSES 0
+# elif defined ( _Ansi )
+   # undef USE_NCURSES
+   # define USE_NCURSES 0
+# elif defined ( _HPUX )
+   # undef USE_NCURSES
+   # define USE_NCURSES 0 
+# elif defined ( _SuSE )
+   # undef USE_NCURSES
+   # define USE_NCURSES 0
+# endif
+/*----------------------------------------------------------------------------*/
+# define HLS_PARSET 1     /* parameter set metals.h, solids.h */
+                          /* 1: SPINNER Werksnorm for specified materials */
+                          /* [ else: Handbook of Physical Quantities ] */
+/*----------------------------------------------------------------------------*/
+# ifndef HLS_SDNODE
+   # define HLS_SDNODE 1 /* [0] / 1 : [Don't] create side nodes */
+# endif
+/*----------------------------------------------------------------------------*/
+# ifndef HLS_RMLOGS
+   # define HLS_RMLOGS 0  /* 1: initially remove old log file */
+# endif
+/*----------------------------------------------------------------------------*/
+# ifndef HLS_NUSSELT
+   # define HLS_NUSSELT 1 /* 1: use Nusselt number approximation for */
+# endif                   /* turbulent flow [ function nusselt(*) ] */
+/*----------------------------------------------------------------------------*/
+# ifndef HLS_LBLWGL
+   # define HLS_LBLWGL 0 /* [0] / 1 : [Don't] label WG-length in temperature */
+# endif                  /* and cw-power graphics (tm, ti, cwp) */
+/*----------------------------------------------------------------------------*/
+/* factor used in hlswrk and hcndct [ if defined ] */
+/*
+# ifndef HLS_RESCLE
+   # define HLS_RESCLE ( 1.00e+00 )
+# endif
+*/
+/*----------------------------------------------------------------------------*/
+/* parameter initialization and input filenames [ extended by <jobindex> ] */
+# ifndef IPT_PARINIT
+   # define IPT_PARINIT "par.init"
+# endif
+# ifndef IPT_PARLOG
+   # define IPT_PARLOG  "par.log"
+# endif
+/*----------------------------------------------------------------------------*/
+# define CELSIUS_TO_KELVIN ( 273.15 )
+/*----------------------------------------------------------------------------*/
+/* used in various functions: */
+# define GIANT_VAL ( 1.e+277 )
+# define SMALL_VAL ( 1.e-277 )
+/*============================================================================*/
+# if HLS_SDNODE == 0
+/*----------------------------------------------------------------------------*/
+/* used in function hlswrk(*) */
+# define WRK_UPDTMP ( 5.00e-01 ) /* smooth temperature update weight factor */
+# define WRK_UPDHCR ( 5.00e-01 ) /* smooth heat current update weight factor */
+# define WRK_INITRS 128          /* maximum number of initializing iterations */
+# define WRK_REPEAT 32           /* internal re-iterations, initialization */
+# define WRK_MAXITR 4096         /* maximum number of [ loop ] iterations */
+# define WRK_MXITSD 64           /* maximum number of fixed side temp itrtns */
+# define WRK_DTINLP ( 1.00e-10 ) /* temperature difference bound, inner loop */
+# define WRK_DTEXLP ( 1.00e-09 ) /* temperature difference bound, outer loop */
+# define WRK_DTMNGL ( 1.00e-07 ) /* neglected mantle [inner-outer] temp diff */
+/*----------------------------------------------------------------------------*/
+/* used in function hcndct(*) */
+# define HCD_STRCHP ( 2.00e+01 ) /* stretch coefficient, pipe length */
+# define HCD_STRCHM ( 2.00e+01 ) /* stretch coefficient, mantle length */
+/*----------------------------------------------------------------------------*/
+/* used in function kelvin(*) */
+# define KLV_MAXITR 4096
+# define GRTOLRC ( 1.0e-08 ) /* ground temperature tolerance [KELVIN] */
+# define DXRTBIS ( 1.0e-11 ) /* xx precision in bisection function rtbis(*) */
+# define DXXNEWR ( 1.0e-10 ) /* Newton-Raphson xx tolerance */
+# define DFFNEWR ( 1.0e-09 ) /* Newton-Raphson ff tolerance */
+# define DXFDJAC ( 1.0e-11 ) /* Delta x in FD Jacobi matrix approximation */
+# define MHC_LWBOUND ( 1.0e-14 ) /* lower bound for offset heat conductivits */
+# define MHC_UPBOUND ( 1.0e+14 ) /* upper bound for offset heat conductivits */
+/*============================================================================*/
+# elif HLS_SDNODE == 1
+/*----------------------------------------------------------------------------*/
+/* used in function hlswrk(*) */
+# define WRK_UPDTMP ( 5.00e-01 ) /* smooth temperature update weight factor */
+# define WRK_UPDHCR ( 5.00e-01 ) /* smooth heat current update weight factor */
+# define WRK_INITRS 128          /* maximum number of initializing iterations */
+# define WRK_REPEAT 32           /* internal re-iterations, initialization */
+# define WRK_MAXITR 4096         /* maximum number of [ loop ] iterations */
+# define WRK_MXITSD 64           /* maximum number of fixed side temp itrtns */
+# define WRK_DTINLP ( 1.00e-07 ) /* temperature difference bound, inner loop */
+# define WRK_DTEXLP ( 1.00e-06 ) /* temperature difference bound, outer loop */
+# define WRK_DTMNGL ( 1.00e-05 ) /* neglected mantle [inner-outer] temp diff */
+/*----------------------------------------------------------------------------*/
+/* used in function hcndct(*) [ not used in option HLS_SDNODE == 1 ] */
+# define HCD_STRCHP ( 2.00e+01 ) /* stretch coefficient, pipe length */
+# define HCD_STRCHM ( 2.00e+01 ) /* stretch coefficient, mantle length */
+/*----------------------------------------------------------------------------*/
+/* used in function kelvin(*) */
+# define KLV_MAXITR 4096
+# define GRTOLRC ( 1.0e-08 ) /* ground temperature tolerance [KELVIN] */
+# define DXRTBIS ( 1.0e-11 ) /* xx precision in bisection function rtbis(*) */
+# define DXXNEWR ( 1.0e-10 ) /* Newton-Raphson xx tolerance */
+# define DFFNEWR ( 1.0e-09 ) /* Newton-Raphson ff tolerance */
+# define DXFDJAC ( 1.0e-11 ) /* Delta x in FD Jacobi matrix approximation */
+# define MHC_LWBOUND ( 1.0e-14 ) /* lower bound for offset heat conductivits */
+# define MHC_UPBOUND ( 1.0e+14 ) /* upper bound for offset heat conductivits */
+# endif /* HLS_SDNODE ... */
+/*============================================================================*/
+/* CPU time stopping mode: */
+# define SYS_TIMES 0 /* 2: use function times(*)                           */
+                     /* 1: use function difftime(*)    [ ANSI C standard ] */
+                     /* 0: use function clock(*)       [ ANSI C standard ] */
+/*----------------------------------------------------------------------------*/
+/* macros used in plot fuction graphp(*): */
+
+# define PLOT_FORMAT "gnuplot_2D" /*plot file format: "SPLINE" or "gnuplot" */
+# define GPH_DATFLE "dat"    /* the data file suffix */
+# define GPH_USCALE 0        /* 1: take uniform scales on xy axes */
+# define GPH_CURVES 20       /* maximum number of graphics */
+# define GPH_POINTS 500      /* maximum number of abscissae ( x-values ) */
+# define GPH_RNDOFF 4        /* roundoff to that number of digits */
+# define GPH_MXRNGE (9.e+00) /* The max. range of abs.values in gnuplot is */
+                             /* interval [1.e-GPH_MXRNGE, 1.e+GPH_MXRNGE]. */
+                             /* Beyond this range all values are rescaled. */
+/*----------------------------------------------------------------------------*/
+# define IPT_MAXLBL 500
+/*----------------------------------------------------------------------------*/
+/* Gavitational acceleration [m/s^2] */
+/* [ if set, this constant overwrites all elsewhere defined values ] */ 
+/*
+# define GRAVIT_ACC ( 9.81000e+00 )
+*/
+/*************************** end of file CONFIG.H *****************************/

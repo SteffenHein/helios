@@ -1,0 +1,17 @@
+[file: scripts.md5]
+created: Sun Dec 19 12:07:40 2021
+-------------------------------------------------------------------------------
+MD5( .directory ) = d41d8cd98f00b204e9800998ecf8427e
+MD5( archvs.pl ) = 56420e12aa4e0460caefe803506f39be
+MD5( cksmd5.pl ) = eb96200d930cba9d298ba2e0f4705138
+MD5( cksmd5.pm ) = 712ef4e0cd808cd79a776b76c0bb2889
+MD5( cksmd5.sh ) = 1cd1a8b63124b1ebc5325d5760f7150f
+MD5( diff.csh ) = e0e06f944d440fa8b95a87103af6f975
+MD5( diff2next.csh ) = 44d1e88faa4339b3a6987901e703e402
+MD5( distinfo ) = 2105fbd4de3d6049be4d0dcbbfc5baa0
+MD5( dplct.csh ) = e6e905ad23bca43accb424d560ff762e
+MD5( helios.csh ) = 32199de2f2a7788dcc8971b5238aac78
+MD5( log2init.csh ) = d9a28a1b1e7fc8cc20a3d0a8d7a2079e
+MD5( md5sum.sh ) = 051d70d60263e9aeeb9c251fc7f7d9cb
+MD5( new-rls ) = 140f5a2ba6be73b12c2ec61b631d916b
+MD5( new-spcf.sh ) = bfb15e46dd04b895bf8dd806b6d313a1

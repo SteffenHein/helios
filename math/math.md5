@@ -1,0 +1,46 @@
+[file: math.md5]
+created: Sun Dec 19 12:07:40 2021
+-------------------------------------------------------------------------------
+MD5( .directory ) = d41d8cd98f00b204e9800998ecf8427e
+MD5( CPRODUCT.M ) = a9c918a8c9cf9d25c78fd64fc84c7fff
+MD5( GPHCONF.H ) = 37ad22b9231a3e7d260d920e4fe06542
+MD5( consts.h ) = d1a1c14f02352147681d5aa64b47fb42
+MD5( dotos.c ) = 669d857df886f57319df89b34a608e76
+MD5( dotos.h ) = 8c26c33cfb0b7a5e6df8e4d8284a4e73
+MD5( dsplay.c ) = 37b83129b9859fd1cb4d30a15f4a6890
+MD5( dsplay.h ) = 72650c80fa4dc082b5c7016c9c32c676
+MD5( dsptyp.h ) = 72540e67994744a0fb8408dfedb1146b
+MD5( fdjac.c ) = 55e50cca901ba3e45395d23eccba0257
+MD5( fdjac.h ) = 1d65a6552984726569885c3dbadf1a70
+MD5( gaussc.h ) = f3bc95e4c85020420d4b2ee1ee1b4182
+MD5( granus.c ) = 30f358d325d9f352ad2f65067c3cb80c
+MD5( graphp.c ) = 88045a580f1f830bd338505680646f02
+MD5( grazet.c ) = 5c6ef06c32bf1fb9171dd7d56b6c9445
+MD5( grphtp.h ) = 62b46b7dcb64425a9886414a0c2e55c8
+MD5( gsscpv.h ) = 1dcf92ba3ada5f12caadacd6484744cb
+MD5( gssjtp.h ) = ccc7f225f5ae40f8ae810f6759d3a33f
+MD5( hlsmath.c ) = c0cee687167c0a3fdcbb8f31adf27a50
+MD5( lotos.c ) = 4113946b26b11f3630c8b0f0ac866ec9
+MD5( lotos.h ) = 9e13faf4f390be54f325528ad3195b75
+MD5( maths.h ) = 56043931d4f2cb0a6e000e07441b89c7
+MD5( nusselt.c ) = 67bb56684ac22cf39d6de8151971719e
+MD5( rdunit.c ) = a9a993f7e55098508ada4379f0903bc3
+MD5( rdunit.h ) = f22ade3b1f528c3266e19f5256b61f37
+MD5( rndoff.c ) = f50ec706c2fbd39e3edda0f8482645d1
+MD5( rtbis.c ) = 48c3f8e42f23787b670b7e80eafa3546
+MD5( rtbis.h ) = d79da59553be04889e8991d283ef4572
+MD5( scropr.h ) = 1108cb7efd6a6df2ff9eb386f8c8a9df
+MD5( shmath.h ) = 9133e6c0d996305c760318e3d519305b
+MD5( shutil.c ) = 5186cbd3854696b4374ee9e2082f31d6
+MD5( shutil.h ) = 7f554a395f4aa16f07b5eae63fafb40f
+MD5( trnorm.c ) = 5c182883e2d2cfc376b55fe38b018a70
+MD5( txcnsl.c ) = 4e51108562de51f7c2ed60730301bc5e
+MD5( txcnsl.h ) = cacc647c748b8e6ba80dde17e46edd1c
+MD5( txctyp.h ) = 8f8d62fd6ded77d4cd1ebf721fd7674b
+MD5( zbrac.h ) = 1fd6cdf8838058cfaccd635400869502
+MD5( zbracv.h ) = a0881a2bf4f29c19a4dad933dd32908b
+MD5( zbrak.h ) = 9da8bed63cf051f1e1bb7b276e23e492
+MD5( zbrakl.h ) = 8b89d79bef0831a438f35972d2aa9264
+MD5( zbraks.h ) = c6458c8de4515cac9aa1ca9cc27e165a
+MD5( zbraksv.h ) = 2ada1fd19074fe7ef553d5110074cdfa
+MD5( zbrakv.h ) = 12d2c87b81efdf30bae909cc771ee987

@@ -1,0 +1,17 @@
+[file: default.md5]
+created: Sun Dec 19 12:07:40 2021
+-------------------------------------------------------------------------------
+MD5( .directory ) = d41d8cd98f00b204e9800998ecf8427e
+MD5( deflt1_mat.h ) = b54c08d04ad79757add55b9227abd66b
+MD5( deflt1_opr.h ) = 5fc5697bcffb4de59fb98a7ab84925b0
+MD5( deflt1_par.h ) = 7c9af80f1e65bef0df18009043acb9ff
+MD5( deflt1_wg_par.h ) = a8f49b34b0f4a298d591229a7a2aef4b
+MD5( deflt_coax_mat.h ) = b54c08d04ad79757add55b9227abd66b
+MD5( deflt_coax_opr.h ) = 118eede55661d6dd6df992511c25034d
+MD5( deflt_coax_par.h ) = 2d7a85c259270daf044226490ea8a593
+MD5( deflt_mat.h ) = b54c08d04ad79757add55b9227abd66b
+MD5( deflt_opr.h ) = 5fc5697bcffb4de59fb98a7ab84925b0
+MD5( deflt_par.h ) = 7c9af80f1e65bef0df18009043acb9ff
+MD5( deflt_wg_mat.h ) = b54c08d04ad79757add55b9227abd66b
+MD5( deflt_wg_opr.h ) = 547280d351e293e37e8d218feb057368
+MD5( deflt_wg_par.h ) = 7c9af80f1e65bef0df18009043acb9ff
