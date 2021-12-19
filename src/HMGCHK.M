@@ -3,8 +3,8 @@
 *                                                                              *
 *   Macro HMGCHK [ homogeneity check ]                                         *
 *                                                                              *
-*   (C) SHEIN; Bad Aibling, October 2016                   Steffen Hein        *
-*   [ Update: 14 December 2016 ]                    <contact@steffen-hein.org> *
+*   (C) SHEIN; Munich, December 2021                       Steffen Hein        *
+*   [ Update: December 19, 2021 ]                       <contact@sfenx.de>     *
 *                                                                              *
 *******************************************************************************/
 

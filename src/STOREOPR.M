@@ -1,5 +1,5 @@
 /* [ file: STOREOPR.M ] */
-/* Update: 24 January 2008 */
+/* Update: December 19, 2021 */
 /*----------------------------------------------------------------------------*/
 # define STOREOPR( FN, MD ) \
 { \
