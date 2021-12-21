@@ -4,7 +4,7 @@
 #  Makefile for the helios program package on a [ Debian ] GNU/Linux operating #
 #  system using a GCC/EGC compiler                                             #
 #                                                                              #
-#  (C) SHEIN; Munich, December 2021                           Steffen Hein     #
+#  (C) SHEIN; Munich, December 2021                            Steffen Hein    #
 #  [ Update: December 17, 2021 ]                            <contact@sfenx.de> #
 #                                                                              #
 #------------------------------------------------------------------------------#
@@ -12,7 +12,7 @@
 #                                                                              #
 # Version required:	v1.0r1                                                 #
 # Date created:		December 17, 2021                                      #
-# Whom:			Steffen Hein <info@sfenx.de>                   #
+# Whom:			Steffen Hein <contact@sfenx.de>                   #
 #                                                                              #
 # $Id: Makefile, v1.0r0  2021-12-17 18:50:40 helios Exp $                          #
 #                                                                              #
@@ -22,7 +22,7 @@ RELEASE=        v1.0r1
 #CATEGORIES=	cad
 #MASTER_SITES=	ftp://steffen-hein.org/pub/cad/
 
-#MAINTAINER=	info@steffen-hein.org
+#MAINTAINER=	Steffen Hein <contact@sfenx.de>
 
 #MAKEFILE=	makefile.gnu
 #NO_PACKAGE=	"must provide without modifications"

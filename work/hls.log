@@ -1,9 +1,9 @@
 
 Program HELIOS - waveguide temperatures vs power
 started in option(s) ' --init-job 1 --init-fle par.init1 '
-Sat Dec 18 21:00:03 2021
+Tue Dec 21 15:20:22 2021
 ================================================================================
-Job no 1 launched at 21:00:03
+Job no 1 launched at 15:20:22
 determining cylinder structure ...
 pre-shaping temperature profile [>>->100.%]
 frequency sweep [>>->100.%]
@@ -122,6 +122,6 @@ Expanded_heat_resistance_matrix_rhc[i][j]
 +2.20325e+00 +2.20325e+00 +2.20325e+00 +2.17710e+00 +2.62717e+00 +2.15094e+00 
 +2.20325e+00 +2.20325e+00 +2.20325e+00 +2.20648e+00 +2.15094e+00 +2.20971e+00 
 
-Job no 1 terminated Dec 18 21:00:15 2021
+Job no 1 terminated Dec 21 15:20:34 2021
 ================================================================================
-HELIOS job no 1 terminated Sat Dec 18 21:00:15 2021
+HELIOS job no 1 terminated Tue Dec 21 15:20:34 2021

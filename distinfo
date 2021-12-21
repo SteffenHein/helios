@@ -2,12 +2,12 @@
 b8a83b89810fb00e0e62c71b77c10c7c  CONFIG.H
 9219c2463cd188dfb242344ac59e55b9  INSTALL
 ab9293aaa6e02e6b201c4c0be09d6f4c  LICENSE
-d32df91c78fbd2693657400c818f099d  Makefile
+eac1a8cca57e18257d77eba559f3eb63  Makefile
 6a967bbdcdd3df52a40e29f838e3c756  README
 174f54e8b9041ac6ec177ad55a919c64  SETUP
 d41d8cd98f00b204e9800998ecf8427e  cc-messages
-3548bdfc6f7e3433fc939796b0338e12  helios-v1.0r1.md5
-d32df91c78fbd2693657400c818f099d  makefile.gnu
-adb0e4ec78ab6888520a6a35b588604c  makefile.win
+39f7829f6da32f76a72352a2281e487a  helios-v1.0r1.md5
+eac1a8cca57e18257d77eba559f3eb63  makefile.gnu
+c00af7baefe887ae4cf89e6f0f38205b  makefile.win
 7ee6afccf9dfc8c376813e644a93d9da  mk.gnu
 c79a4108c34a8e155632c2583491f083  mk.win

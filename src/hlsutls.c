@@ -28,7 +28,8 @@
 *                                                                              *
 *         ( gjp->zr[i][k] + j*( gjp->zi[i][k] ))  ( i,k=0,...,n-1 )            *
 *                                                                              *
-*   (C) SHEIN; Munich, Decemper 17 2021                   Steffen Hein         *
+*   (C) SHEIN; Munich, December 2021                       Steffen Hein        *
+*   [ Update: December 17, 2021 ]                       <contact@sfenx.de>     *
 *                                                                              *
 *******************************************************************************/
 # define _POSIX_SOURCE 1 /* some headers of the POSIX.1 standard will be used */
@@ -911,7 +912,7 @@ int graphp( GRAPHICS *gpt )
           y_max *= rscale;
       };
 
-      strcpy( prefix , "gnu." );
+      strcpy( prefix , "gpl." );
 
       GPH_FOPEN( prefix, ( gpt->file ));
 

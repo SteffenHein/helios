@@ -1,8 +1,8 @@
 [file: scripts.md5]
-created: Sun Dec 19 12:07:40 2021
+created: Tue Dec 21 18:19:17 2021
 -------------------------------------------------------------------------------
 MD5( .directory ) = d41d8cd98f00b204e9800998ecf8427e
-MD5( archvs.pl ) = 56420e12aa4e0460caefe803506f39be
+MD5( archvs.pl ) = e4ddcf386a07a0bf011f8d1e714f4ad9
 MD5( cksmd5.pl ) = eb96200d930cba9d298ba2e0f4705138
 MD5( cksmd5.pm ) = 712ef4e0cd808cd79a776b76c0bb2889
 MD5( cksmd5.sh ) = 1cd1a8b63124b1ebc5325d5760f7150f

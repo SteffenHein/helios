@@ -1,20 +1,21 @@
 [file: helios-v1.0r1.md5]
-created: Sun Dec 19 12:07:40 2021
+created: Tue Dec 21 18:19:17 2021
 -------------------------------------------------------------------------------
+MD5( .git ) = d41d8cd98f00b204e9800998ecf8427e
 MD5( CONFIG-v1.0r1 ) = 63b8661268a312b1e3a4888643c91c97
 MD5( CONFIG.H ) = b8a83b89810fb00e0e62c71b77c10c7c
 MD5( INSTALL ) = 9219c2463cd188dfb242344ac59e55b9
 MD5( LICENSE ) = ab9293aaa6e02e6b201c4c0be09d6f4c
-MD5( Makefile ) = d32df91c78fbd2693657400c818f099d
+MD5( Makefile ) = eac1a8cca57e18257d77eba559f3eb63
 MD5( README ) = 6a967bbdcdd3df52a40e29f838e3c756
 MD5( SETUP ) = 174f54e8b9041ac6ec177ad55a919c64
 MD5( bin ) = d41d8cd98f00b204e9800998ecf8427e
 MD5( cc-messages ) = d41d8cd98f00b204e9800998ecf8427e
 MD5( default ) = d41d8cd98f00b204e9800998ecf8427e
-MD5( distinfo ) = abaf903f91eb1145d93ada5d8700d93b
+MD5( distinfo ) = 1f7266649d27e5a0743f11a59fb59956
 MD5( doc ) = d41d8cd98f00b204e9800998ecf8427e
-MD5( makefile.gnu ) = d32df91c78fbd2693657400c818f099d
-MD5( makefile.win ) = adb0e4ec78ab6888520a6a35b588604c
+MD5( makefile.gnu ) = eac1a8cca57e18257d77eba559f3eb63
+MD5( makefile.win ) = c00af7baefe887ae4cf89e6f0f38205b
 MD5( math ) = d41d8cd98f00b204e9800998ecf8427e
 MD5( mk.gnu ) = 7ee6afccf9dfc8c376813e644a93d9da
 MD5( mk.win ) = c79a4108c34a8e155632c2583491f083

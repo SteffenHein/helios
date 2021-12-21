@@ -3,7 +3,7 @@ set init=$1
 set final=$2
 
 set FIRST_FILE="hls.val"
-set SECOND_FILE="../2.0/hls.val"
+set SECOND_FILE="../v1.0r1/hls.val"
 # now iterate
 @ i = ${init}
 @ j = ${init}

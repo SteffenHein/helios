@@ -2,7 +2,7 @@
 # define DO_GSSJPV "gssjpv(*)"
 /*******************************************************************************
 *                                                                              *
-*   Gauss-Jordan elimination with full pivoting; HELIOS release 1.0r4          *
+*   Gauss-Jordan elimination with full pivoting; HELIOS release v1.0r1         *
 *   [ Heat and Electric Losses In Ordinary wave guiding Structures ]           *
 *                                                                              *
 *   Given any non-singular complex square matrix M of rank n > 0 and           *
@@ -28,8 +28,8 @@
 *                                                                              *
 *         ( gjp->zr[i][k] + j*( gjp->zi[i][k] ))  ( i,k=0,...,n-1 )            *
 *                                                                              *
-*   (C) SHEIN; Bad Aibling, January 2008                  Steffen Hein         *
-*   [ Update: 26 October 2016 ]                     <contact@steffen-hein.org> *
+*   (C) SHEIN; Munich, December 2021                       Steffen Hein        *
+*   [ Update: December 17, 2021 ]                       <contact@sfenx.de>     *
 *                                                                              *
 *******************************************************************************/
 # include <stdio.h>

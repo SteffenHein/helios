@@ -1,15 +1,15 @@
 /* [ file: fluids.h ] */
 /*******************************************************************************
 *                                                                              *
-*   Function body fluids(*); HELIOS release 2.0r2                              *
+*   Function body fluids(*); HELIOS release v1.0r1                             *
 *   [ Heat and Electric Losses In Ordinary wave guiding Structures ]           *
 *                                                                              *
 *   This function returns physical parameters for gases and cooling fluids     *
 *   used in electric waveguides                                                *
 *   [ Parameters at ZERO degree Celsius.]                                      *
 *                                                                              *
-*   (C) SHEIN; Bad Aibling, January 2008                  Steffen Hein         *
-*   [ Update: 04 June 2017 ]                        <contact@steffen-hein.org> *
+*   (C) SHEIN; Munich, December 2021                       Steffen Hein        *
+*   [ Update: December 17, 2021 ]                       <contact@sfenx.de>     *
 *                                                                              *
 *******************************************************************************/
 

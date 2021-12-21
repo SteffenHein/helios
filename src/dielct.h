@@ -1,14 +1,14 @@
 /* [ file: dielct.h ] */
 /*******************************************************************************
 *                                                                              *
-*   Function body dielct(*); HELIOS, release 1.0r4                             *
+*   Function body dielct(*); HELIOS, release v1.0r1                            *
 *   [ Heat and Electric Losses In Ordinary wave guiding Structures ]           *
 *                                                                              *
 *   This function returns physical parameters for dielectric material commonly *
 *   used in electric waveguides                                                *
 *                                                                              *
-*   (C) SHEIN; Bad Aibling, January 2008                  Steffen Hein         *
-*   [ Update: 26 October 2016 ]                     <contact@steffen-hein.org> *
+*   (C) SHEIN; Munich, December 2021                       Steffen Hein        *
+*   [ Update: December 17, 2021 ]                       <contact@sfenx.de>     *
 *                                                                              *
 *******************************************************************************/
 

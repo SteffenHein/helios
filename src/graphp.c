@@ -2,11 +2,11 @@
 # define DO_GRAPHP "graphp(*)"
 /*******************************************************************************
 *                                                                              *
-*   Graphics files creation function graphp(*); HELIOS release 1.0r5           *
+*   Graphics files creation function graphp(*); HELIOS release v1.0r1          *
 *   [ Heat and Electric Losses In Ordinary wave guiding Structures ]           *
 *                                                                              *
-*   (C) SHEIN; Bad Aibling, January 2008                  Steffen Hein         *
-*   [ Update: 09 Novemver 2016 ]                    <contact@steffen-hein.org> *
+*   (C) SHEIN; Munich, December 2021                       Steffen Hein        *
+*   [ Update: December 17, 2021 ]                       <contact@sfenx.de>     *
 *                                                                              *
 *******************************************************************************/
 # define _POSIX_SOURCE 0 /* set to 1: if POSIX.1 standard headers will be used*/
@@ -385,7 +385,7 @@ int graphp( GRAPHICS *gpt )
           y_max *= rscale;
       };
 
-      strcpy( prefix , "gnu." );
+      strcpy( prefix , "gpl." );
 
       GPH_FOPEN( prefix, ( gpt->file ));
 
