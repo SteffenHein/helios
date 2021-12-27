@@ -1,5 +1,5 @@
 /* [ file: gssjtp.h ] */
-/* Update: 24 January 2008 */
+/* Update: December 27, 2021 */
 /*----------------------------------------------------------------------------*/
 /* The structure type definition of Gauss-Jordan algorithm functions          */
 /* gssjrd(*) [line pivoting] and gssjpv(*) [full pivoting ]                   */

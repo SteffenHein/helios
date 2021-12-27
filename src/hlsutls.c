@@ -1,5 +1,4 @@
 /* [ file: hlsutls.c ] */
-/* Update: December 2021                                   <contact@sfenx,de> */
 /*******************************************************************************
 *                                                                              *
 *   Gauss-Jordan elimination with full pivoting; HELIOS release v1.0r1         *
@@ -29,7 +28,7 @@
 *         ( gjp->zr[i][k] + j*( gjp->zi[i][k] ))  ( i,k=0,...,n-1 )            *
 *                                                                              *
 *   (C) SHEIN; Munich, December 2021                       Steffen Hein        *
-*   [ Update: December 17, 2021 ]                       <contact@sfenx.de>     *
+*   [ Update: December 27, 2021 ]                       <contact@sfenx.de>     *
 *                                                                              *
 *******************************************************************************/
 # define _POSIX_SOURCE 1 /* some headers of the POSIX.1 standard will be used */

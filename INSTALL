@@ -8,7 +8,7 @@ release v1.0r1
 (C) SHEIN; Munich, January 2008                            Steffen Hein
 [ Update: December 17, 2021 ]                           <contact@sfenx.de>
 --------------------------------------------------------------------------------
-1. Copy the package file helios-1.0.tgz into your home directory [ or where 
+1. Copy the package file helios-v1.0r1.tgz into your home directory [ or where 
    you want to create the initial installation directory ~./helios-v1.0r1 ].
    In the following that directory is referred to as 'build directory'.
 --------------------------------------------------------------------------------

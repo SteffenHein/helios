@@ -1,5 +1,5 @@
 [file: src.md5]
-created: Tue Dec 21 18:19:17 2021
+created: Mon Dec 27 13:13:49 2021
 -------------------------------------------------------------------------------
 MD5( .directory ) = d41d8cd98f00b204e9800998ecf8427e
 MD5( DISPLAY.M ) = b474dd691a0d3c0c0b5177c881da1c20
@@ -12,7 +12,7 @@ MD5( STOREPAR.M ) = 79721b3200db0dbb7f864add14180eda
 MD5( UPDHCRR.M ) = 19f194891e9434633106c266b7fb90ee
 MD5( WRKMCS0.M ) = 6c284f1d30469dc1ecb46c15abe650fd
 MD5( WRKMCS1.M ) = 457faca025d94f33d855ae28260e4859
-MD5( dielct.c ) = 20121a5b84943ea19a622fed85fb1998
+MD5( dielct.c ) = 68ce5ce67dfb3fae747a3030b8090bda
 MD5( dielct.h ) = c25d5df92bf29c22715b1c8425b6499f
 MD5( dieltp.h ) = 4165d0d85ea46ec2103da0eb2ccd21d1
 MD5( fldstp.h ) = 26c0c62c061c43a7c2f9fe768055e7f0
@@ -21,13 +21,13 @@ MD5( fluids.h ) = 6bd8ac39bc1a47f63c109df779d9768c
 MD5( graphp.c ) = 088e7f159ed10581f58a9bda1dc4fec5
 MD5( grphtp.h ) = 3fde5f398b3526924c1249cd5c978adf
 MD5( gssjpv.c ) = 6d878cdae112ad8a346adc6f8bf4e614
-MD5( gssjtp.h ) = 58de5579c6aeb3868248988d7391b4ec
+MD5( gssjtp.h ) = 0bde37aa01b9843c59c44d267029acdd
 MD5( hcndct.c ) = 91936981c5cf223256eea1a817d175aa
 MD5( hcndct.h ) = fcb64eb068a9475c2cc91d54a83b8e12
 MD5( helios.c ) = 6d30b412a2c63ff5b047c541896c44a6
 MD5( hlsdrv.c ) = 315b2e1178b7ff1ac891fd8bb720ac42
 MD5( hlsdrv.h ) = efbdc36b4f3622747a6295bb1da1e77d
-MD5( hlsutls.c ) = 8054dbaf1f74eadf57430fe084a0b424
+MD5( hlsutls.c ) = df5513ef8e977aebf1344e7efcf3a600
 MD5( hlswrk.c ) = fc3e55d5ec03648b39864e0eb51da6ce
 MD5( hlswrk.h ) = a2e3db343ba9ece829b4f0319ac6de3e
 MD5( init_mat.h ) = e3bb6a64b865eb27427a99b8e106fab9
@@ -37,7 +37,7 @@ MD5( inputs.h ) = 462932f0f6aced77f2f286688df0381c
 MD5( intlze.c ) = 3576c8edf37d0178b944f41c817dd0c9
 MD5( intlze.h ) = 6b646022df02ffbca8d4aa0a18b4a7e5
 MD5( kelvin.c ) = d5deacdca8d0625dec1896c4a0dfb2bf
-MD5( kelvin.h ) = 131ab3086333d41ae2a08bfb162369e0
+MD5( kelvin.h ) = 9f7c61d2375ff685f549df5f9d256840
 MD5( losses.c ) = 675f79ec22a60376b3f4edc4b0107a0f
 MD5( losses.h ) = c5627d63799c804a1f3c68426dc11861
 MD5( metals.c ) = 3b2e4c56c9c68de73ee852eb61f8c3de
@@ -55,7 +55,7 @@ MD5( solids.h ) = d0ae9643232762f67aaac712a8f486a1
 MD5( store_mat.h ) = 38635be9847aee3bcc1ed7a88e16aaa2
 MD5( store_opr.h ) = b1d721602525c4eb67c90398b73c11b5
 MD5( store_par.h ) = 702bebe0563f7e9b094bae38f0c976e1
-MD5( store_val.h ) = f52cc24b83c09f289c22ab0541b273aa
+MD5( store_val.h ) = b7e4575b377861856828b58aa67fa084
 MD5( types.h ) = aba7b4a51e562cce84a84cc158d0ebb6
 MD5( values.c ) = 0be6db0df8b9fbc661a791790b1a1601
 MD5( values.h ) = 255104d61f74468f9057316679d92da7

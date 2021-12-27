@@ -1,5 +1,5 @@
-HELIOS RESULTS FILE 'hls.val0'
-[program helios, job no 0]
+HELIOS RESULTS FILE 'hls.val1'
+[program helios, job no 1]
 ================================================================================
 Diameters_and_materials
 
@@ -99,5 +99,5 @@ Expanded_heat_resistance_matrix_[(m*K)/W]
 +2.05446e+01 +2.05446e+01 +2.05446e+01 +2.00568e+01 
 +2.00568e+01 +2.00568e+01 +2.00568e+01 +2.00568e+01 
 
-RESULTS file hls.val0 created
+RESULTS file hls.val1 created
 Thu Oct 27 14:05:36 2016

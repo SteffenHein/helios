@@ -6,8 +6,8 @@
 *   Function store_val(*); HELIOS release v1.0r1                               *
 *   [ Heat and Electric Losses In Ordinary wave guiding Systems ]              *
 *                                                                              *
-*   Given an [open] stream, FILE *fleptr, this function writes special actual  *
-*   HELIOS values into the stream.                                             *
+*   Given an [open] stream, FILE *fleptr, this function writes updated special *
+*   parameters and computed values into the stream.                            *
 *                                                                              *
 *   (C) SHEIN; Munich, December 2021                       Steffen Hein        *
 *   [ Update: December 17, 2021 ]                       <contact@sfenx.de>     *

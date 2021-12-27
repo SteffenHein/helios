@@ -1,7 +1,7 @@
 # define DO_DIELCT "dielct(*)"
 /*******************************************************************************
 *                                                                              *
-*   Function dielec(*); HELIOS release v1.0r0                                  *
+*   Function dielec(*); HELIOS release v1.0r1                                  *
 *   [ Heat and Electric Losses In Ordinary wave guiding Structures ]           *
 *                                                                              *
 *   This function returns physical parameters for dielectric material commonly *

@@ -1,5 +1,4 @@
 /* [ file: kelvin.h ] */
-# define DO_KELVIN "kelvin(*)"
 /*******************************************************************************
 *                                                                              *
 *   Function body kelvin(*); HELIOS release v1.0r1                             *
@@ -9,7 +8,7 @@
 *   heat resistances between parallel conductors                               *
 *                                                                              *
 *   (C) SHEIN; Munich, December 2021                      Steffen Hein         *
-*   [ Update: December 17, 2021 ]                       <contact@sfenx.de>     *
+*   [ Update: December 27, 2021 ]                       <contact@sfenx.de>     *
 *                                                                              *
 *******************************************************************************/
 # include "vtempr.h"

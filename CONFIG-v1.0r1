@@ -7,7 +7,7 @@
 /*  [ Update: December 17, 2021 ]                        <contact@sfenx.de>   */
 /*----------------------------------------------------------------------------*/
 # define HELIOS_RELEASE "v1.0r1"
-# define HELIOS_UPDATE "2031-12-17"
+# define HELIOS_UPDATE "2021-12-17"
 /*----------------------------------------------------------------------------*/
 # define NODES   20 /* the maximum number of temperature nodes */
 # define OPERATS 15 /* the maximum number of computation modes */

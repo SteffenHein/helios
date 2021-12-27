@@ -1,5 +1,5 @@
 #!/bin/sh
-OLD_RELEASE=1.0r0
+OLD_RELEASE=v1.0r0
 NEW_RELEASE=v1.0r1
 mkdir tmp
 for i in *; do sed s/${OLD_RELEASE}/${NEW_RELEASE}/g $i > tmp/$i; done

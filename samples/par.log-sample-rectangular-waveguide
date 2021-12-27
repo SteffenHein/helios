@@ -1,4 +1,4 @@
-PARAMETERS-1
+PARAMETERS-2
 helios
 waveguide_temperatures_vs_admissible_power
 
@@ -79,7 +79,7 @@ s071=Fixed_heat_inflow_[opposite_side],_pipe____[inactive]:   0.000000000000e+00
 
 ================================================================================
 
-MATERIALS-1
+MATERIALS-2
 helios
 waveguide_temperatures_vs_admissible_power
 
@@ -92,7 +92,7 @@ cooling_fluid___________________________________[inactive]:  VOID
 
 ================================================================================
 
-OPERATIONS-1
+OPERATIONS-2
 helios
 waveguide_temperatures_vs_admissible_power
 

@@ -7,15 +7,17 @@ HELIOS [ Heat and Electric Losses In Ordinary wave guiding Structures ],
 release v1.0r1 
 
 (C) SHEIN; Munich, December 2021                            Steffen Hein
-[ Update: December 17, 2021 ]                            <contact@sfenx.de>
+[ Update: December 27, 2021 ]                            <contact@sfenx.de>
 --------------------------------------------------------------------------------
 The HELIOS program package provides a set of numerical routines for computing
 resistive losses, heat dissipation, temperatures and radio frequency CW power
 limits for horizontal rectangular waveguides and coaxial lines.
 The underlying algorithms evaluate the radial heat transfer by conduction, 
 convection and radiation for given media [ solid lossy dielectrics or gases
-under variable pressure ] and derive inner temperature maxima, or transmitted
-CW power limits for steady state operation.
+under variable pressure ] and, if wanted, one-sided axial heat transfer via 
+the inner and/or outer conductor(s) to an end face, and in this way compute 
+inner temperature maxima or transferred CW power limits for steady state 
+operation.
 --------------------------------------------------------------------------------
 The underlying algorithms rely on theoretical and empirical results mostly
 found in these 
