@@ -1,5 +1,5 @@
 [file: helios-v1.0r1.md5]
-created: Mon Dec 27 13:13:49 2021
+created: Mon Dec 27 18:32:44 2021
 -------------------------------------------------------------------------------
 MD5( .git ) = d41d8cd98f00b204e9800998ecf8427e
 MD5( CONFIG-v1.0r1 ) = fa907a612f1b2159f133ff4fde429cff
@@ -7,7 +7,7 @@ MD5( CONFIG.H ) = b8a83b89810fb00e0e62c71b77c10c7c
 MD5( INSTALL ) = 0db84d06a77afa64b190af530ffdef4e
 MD5( LICENSE ) = ab9293aaa6e02e6b201c4c0be09d6f4c
 MD5( Makefile ) = eac1a8cca57e18257d77eba559f3eb63
-MD5( README ) = 47a04e8804e1278da3dbb75c7e1a870f
+MD5( README ) = 9e5519e55d20c6be0fb4f154175d8c6f
 MD5( SETUP ) = 174f54e8b9041ac6ec177ad55a919c64
 MD5( bin ) = d41d8cd98f00b204e9800998ecf8427e
 MD5( cc-messages ) = d41d8cd98f00b204e9800998ecf8427e
