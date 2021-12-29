@@ -7,7 +7,7 @@
 *   Material parameter file [ opr.log<N> ] reading function                    *
 *                                                                              *
 *   (C) SHEIN; Munich, December 2021                      Steffen Hein         *
-*   [ Update: December 17, 2021 ]                       <contact@sfenx.de>     *
+*   [ Update: December 28, 2021 ]                       <contact@sfenx.de>     *
 *                                                                              *
 *******************************************************************************/
 
@@ -53,7 +53,7 @@ short rread_matter( char *filename, char mode )
       {
          if (( state->uif ) == 't' )
 	 {
-            printf( "\n materials file %s not found "
+            printf( "\n material parameters file %s not found "
                "in present directory:\n ", fleptr  );
             printf( "\n please re-enter filename [ Escape: "
                "enter null ] >----> " );
@@ -64,7 +64,7 @@ short rread_matter( char *filename, char mode )
          }
 	 else
 	 {
-            fprintf( stderr, "\nmaterials file %s not found "
+            fprintf( stderr, "\nmaterial parameters file %s not found "
 	       "in working directory\n", fleptr );
             exit( EXIT_FAILURE );
          };
@@ -139,7 +139,7 @@ short rread_matter( char *filename, char mode )
             {
                if (( state->uif ) == 't' )
 	       {
-                  printf( "\n materials not found "
+                  printf( "\n material parameters not found "
                      "in file %s:\n", fleptr );
                   printf( "\n please re-enter filename [ Escape: "
                      "enter null ] >----> " );
@@ -150,7 +150,7 @@ short rread_matter( char *filename, char mode )
                }
 	       else
 	       {
-                  fprintf( stderr, "\nmaterials not found "
+                  fprintf( stderr, "\nmaterial parameters not found "
 	             "in file %s !\n", fleptr );
                   exit( EXIT_FAILURE );
                };

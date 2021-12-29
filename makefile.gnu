@@ -1,11 +1,12 @@
 #[File: helios-v1.0r1/makefile.gnu]
 #------------------------------------------------------------------------------#
 #                                                                              #
-#  Makefile for the helios program package on a [ Debian ] GNU/Linux operating #
-#  system using a GCC/EGC compiler                                             #
+#  Makefile for the helios program package on a [ Debian ] GNU/Linux           #
+#  operating system using a GCC/EGC compiler and GNU Make [ or CMake ]         #
+#  and [ optionally ] lncurses                                                 #
 #                                                                              #
 #  (C) SHEIN; Munich, December 2021                            Steffen Hein    #
-#  [ Update: December 17, 2021 ]                            <contact@sfenx.de> #
+#  [ Update: December 28, 2021 ]                            <contact@sfenx.de> #
 #                                                                              #
 #------------------------------------------------------------------------------#
 # executable program name: helios                                              #
@@ -19,7 +20,7 @@
 #------------------------------------------------------------------------------#
 DISTNAME=	helios-${RELEASE}
 RELEASE=        v1.0r1	
-#CATEGORIES=	cad
+#CATEGORIES=	physics
 #MASTER_SITES=	ftp://steffen-hein.org/pub/cad/
 
 #MAINTAINER=	Steffen Hein <contact@sfenx.de>

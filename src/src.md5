@@ -1,5 +1,5 @@
 [file: src.md5]
-created: Mon Dec 27 18:32:44 2021
+created: Wed Dec 29 21:32:17 2021
 -------------------------------------------------------------------------------
 MD5( .directory ) = d41d8cd98f00b204e9800998ecf8427e
 MD5( DISPLAY.M ) = b474dd691a0d3c0c0b5177c881da1c20
@@ -43,8 +43,8 @@ MD5( losses.h ) = c5627d63799c804a1f3c68426dc11861
 MD5( metals.c ) = 3b2e4c56c9c68de73ee852eb61f8c3de
 MD5( metals.h ) = 13ee2b4c872d3906a6bf41f089b1343c
 MD5( metltp.h ) = 0728cb44a0c5de7c28ac8f3118654fa7
-MD5( rread_mat.h ) = 5550a7e5aab2d0839854b208399313eb
-MD5( rread_opr.h ) = aff281ee228d36bd238eea87de89288d
+MD5( rread_mat.h ) = 53af43c7b79c86795c5051f8393db864
+MD5( rread_opr.h ) = 95a37e5b8b4407f4bf0cdf65c70ea506
 MD5( rread_par.h ) = 9f835183fcf27d879e302486b8d8bdb4
 MD5( rvise_mat.h ) = 87ebd5085d18ddc881cdb09f77d4901a
 MD5( rvise_opr.h ) = d953bdd910b18741519eb4b8f0f40172

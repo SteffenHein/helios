@@ -6,7 +6,7 @@ HELIOS [ Heat and Electric Losses In Ordinary wave guiding Structures ],
 release v1.0r1 
 
 (C) SHEIN; Munich, January 2008                            Steffen Hein
-[ Update: December 17, 2021 ]                           <contact@sfenx.de>
+[ Update: December 28, 2021 ]                           <contact@sfenx.de>
 --------------------------------------------------------------------------------
 1. Copy the package file helios-v1.0r1.tgz into your home directory [ or where 
    you want to create the initial installation directory ~./helios-v1.0r1 ].
@@ -33,6 +33,8 @@ release v1.0r1
 
         ln -s makefile.unx Makefile
 
+   Note that the pre-configured makefiles [ makefile.gnu, makefile.unx ]
+   added to this package use GNU Make [ or CMake ] syntax.
 --------------------------------------------------------------------------------
 4. Edit the CONFIG.H header file and reconfigure, if necessary or wanted, the
    pertinent array dimensions [ macros ], always complying with the needs of

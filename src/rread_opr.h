@@ -7,7 +7,7 @@
 *   Oparation parameter file [ opr.log<N> ] reading function                   *
 *                                                                              *
 *   (C) SHEIN; Munich, December 2021                      Steffen Hein         *
-*   [ Update: December 17, 2021 ]                       <contact@sfenx.de>     *
+*   [ Update: December 28, 2021 ]                       <contact@sfenx.de>     *
 *                                                                              *
 *******************************************************************************/
 
@@ -51,7 +51,7 @@ short rread_operts( char *filename, char mode )
       {
          if (( state->uif ) == 't' )
          {
-            printf( "\n operations file %s not found "
+            printf( "\n operation parameters file %s not found "
                "in present directory:\n", fleptr );
             printf( "\n please re-enter filename [ Escape: "
                "enter null ] >----> " );
@@ -63,7 +63,7 @@ short rread_operts( char *filename, char mode )
          }
 	 else
          {
-            fprintf( stderr, "\noperations file %s not found "
+            fprintf( stderr, "\noperation parameters file %s not found "
 	       "in working directory\n", fleptr );
             exit( EXIT_FAILURE );
          };
@@ -114,7 +114,7 @@ short rread_operts( char *filename, char mode )
             {
                if (( state->uif ) == 't' )
 	       {
-                  printf( "\n operation parameters not found "
+                  printf( "\n operation modes not found "
                      "in file '%s':\n", fleptr );
                   printf( "\n please re-enter filename [ Escape: "
                      "enter null ] >----> " );
@@ -126,7 +126,7 @@ short rread_operts( char *filename, char mode )
                }
 	       else
 	       {
-                  fprintf( stderr, "\noperation parameters not found "
+                  fprintf( stderr, "\noperation modes not found "
 	             "in file '%s'\n", fleptr );
                   exit( EXIT_FAILURE );
                };
