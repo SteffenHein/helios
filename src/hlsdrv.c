@@ -10,7 +10,7 @@
 *   routines of hlswrk(*).                                                     *
 *                                                                              *
 *   (C) SHEIN; Munich, December 2021                      Steffen Hein         *
-*   [ Update: December 17, 2021 ]                       <contact@sfenx.de>     *
+*   [ Update: January 31, 2022 ]                        <contact@sfenx.de>     *
 *                                                                              *
 *******************************************************************************/
 # define _POSIX_SOURCE 1 /* some headers of the POSIX.1 standard will be used */
@@ -69,13 +69,7 @@
 /*----------------------------------------------------------------------------*/
 /* structures typedefs, etc.: */
 
-# include "../math/txctyp.h"
 # include "../src/types.h"
-/*----------------------------------------------------------------------------*/
-/*
-# include "metals.h"
-# include "dielct.h"
-*/
 /*----------------------------------------------------------------------------*/
 static OPERATIONS opr = {null};
 static MATERIALS mat = {null};
@@ -93,6 +87,7 @@ static THERMDYN trm = {null};
 static HCURRS hcr = {null};
 static HCNDCT cdc = {null};
 static RESULTS res = {null};
+static TXCNSL cns = {null};
 /*----------------------------------------------------------------------------*/
 static HELIOSSTATE helios = {null};
 /*----------------------------------------------------------------------------*/

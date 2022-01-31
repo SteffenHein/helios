@@ -56,7 +56,6 @@
    # include <sys/times.h>  /* system time: cf. times(*)                      */
 # endif
 /*----------------------------------------------------------------------------*/
-# include "../math/txctyp.h" /* the text console structure type */
 # include "../src/types.h"   /* some structure type definitions */
 /*----------------------------------------------------------------------------*/
 /* operational constants: */

@@ -1,5 +1,5 @@
 [file: math.md5]
-created: Wed Dec 29 21:32:17 2021
+created: Mon Jan 31 23:25:19 2022
 -------------------------------------------------------------------------------
 MD5( .directory ) = d41d8cd98f00b204e9800998ecf8427e
 MD5( CPRODUCT.M ) = a9c918a8c9cf9d25c78fd64fc84c7fff
@@ -8,7 +8,7 @@ MD5( consts.h ) = d1a1c14f02352147681d5aa64b47fb42
 MD5( dotos.c ) = 669d857df886f57319df89b34a608e76
 MD5( dotos.h ) = 8c26c33cfb0b7a5e6df8e4d8284a4e73
 MD5( dsplay.c ) = 37b83129b9859fd1cb4d30a15f4a6890
-MD5( dsplay.h ) = 72650c80fa4dc082b5c7016c9c32c676
+MD5( dsplay.h ) = 2e9af0ac94d57d4a66ac0e8002110d9c
 MD5( dsptyp.h ) = 72540e67994744a0fb8408dfedb1146b
 MD5( fdjac.c ) = 55e50cca901ba3e45395d23eccba0257
 MD5( fdjac.h ) = 1d65a6552984726569885c3dbadf1a70
@@ -34,9 +34,9 @@ MD5( shmath.h ) = 9133e6c0d996305c760318e3d519305b
 MD5( shutil.c ) = 5186cbd3854696b4374ee9e2082f31d6
 MD5( shutil.h ) = 7f554a395f4aa16f07b5eae63fafb40f
 MD5( trnorm.c ) = 5c182883e2d2cfc376b55fe38b018a70
-MD5( txcnsl.c ) = 4e51108562de51f7c2ed60730301bc5e
+MD5( txcnsl.c ) = 0176e959542826b03d4684c50a9727f8
 MD5( txcnsl.h ) = cacc647c748b8e6ba80dde17e46edd1c
-MD5( txctyp.h ) = 8f8d62fd6ded77d4cd1ebf721fd7674b
+MD5( txctyp.h ) = a2d9f46b28abf54276ebe55a509ce864
 MD5( zbrac.h ) = 1fd6cdf8838058cfaccd635400869502
 MD5( zbracv.h ) = a0881a2bf4f29c19a4dad933dd32908b
 MD5( zbrak.h ) = 9da8bed63cf051f1e1bb7b276e23e492

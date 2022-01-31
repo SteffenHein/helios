@@ -11,7 +11,7 @@
 *   which is iterativeliy updated in function hlswrk(*) ].                     *
 *                                                                              *
 *   (C) SHEIN; Munich, December 2021                      Steffen Hein         *
-*   [ Update: December 17, 2021 ]                       <contact@sfenx.de>     *
+*   [ Update: January 31, 2022 ]                        <contact@sfenx.de>     *
 *                                                                              *
 *******************************************************************************/
 # ifndef HLS_SDNODE
@@ -280,28 +280,30 @@ initlze( HELIOSSTATE *state )
 /*............................................................................*/
 /* HELIOS start message: */
 
-   if (( stp->uif ) == 't' )
+   if ( stp->uif == 't' )
    {
-      strcpy(( dsp->messge ), "\r Job no " );
-      strcat(( dsp->messge ), ( lotos(( stp->job ), null )));
-      strncat(( dsp->messge ), " launched", 9 );
+      strcpy( dsp->messge, "\r Job no " );
+      strcat( dsp->messge, lotos(( stp->job ), null ));
+      strncat( dsp->messge, " launched", 9 );
 
       nseconds = time( timer );
       strcpy( timeptr, ctime( &nseconds ) + 11 );
-      strncat(( dsp->messge ), " at ", 4 );
-      strncat(( dsp->messge ), timeptr, 8 );
-      strncat(( dsp->messge ), " - please wait a moment ...", 28 );
+      strncat( dsp->messge, " at ", 4 );
+      strncat( dsp->messge, timeptr, 8 );
+      strncat( dsp->messge, " - please wait a moment ...", 28 );
 /*............................................................................*/
 /* write start message on screen: */
 
-      ( dsp->option ) = start;
+      dsp->option = start;
       dsplay( dsp );
+
+      fprintf( stdout, "\n " );
    };
 /*............................................................................*/
 /* copy [ initial ] frequencies, CW power, temperatures etc. */
 /* 1st stage - preparation: */
 
-   ( stp->opmrk[0] ) = null;
+   stp->opmrk[0] = null;
 
    frn = ( elp->frn ); /* the number of frequency points */
 

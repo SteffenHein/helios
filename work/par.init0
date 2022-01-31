@@ -1,4 +1,4 @@
-PARAMETERS-1
+PARAMETERS-0
 HELIOS
 waveguide_temperatures_vs_admissible_power
 
@@ -10,7 +10,7 @@ s002=Stopping_[upper_or_lower]_frequency______________[Hz]:   5.000000000000e+08
 s003=Transmitted_CW_power__________________________[Watts]:   2.000000000000e+05
 s004=Temperature,_environment________________[deg_Celsius]:   3.000000000000e+01
 s005=Temperature,_waveguide_mantle_____________[dependent]:   5.000000000000e+01
-s006=Temperature,_inner_conductor_______[initial_value;_C]:   5.500000000000e+01
+s006=Temperature,_inner_conductor_______[initial_value;_C]:   1.500000000000e+02
 s007=Pressure,_environment__________________[bar_absolute]:   1.000000000000e+00
 s008=Pressure_in_waveguide__________________[bar_absolute]:   1.000000000000e+00
 s009=Heat_radiation_emissivity,_mantle__________________[]:   2.000000000000e-02
@@ -69,17 +69,17 @@ s061=Flow_velocity_[m/s],_air_in_environment____[inactive]:   0.000000000000e+00
 s062=Nusselt_number,_that_air_flow______________[inactive]:   3.600000000000e+00
 s063=Length_of_cooled_section(s),_dielectric____[inactive]:   1.000000000000e+00
 s064=Length_of_cooled_section(s),_pipe__________[inactive]:   1.000000000000e+00
-s065=Waveguide_length__________________________________[m]:   4.000000000000e-01
+s065=Waveguide_length__________________________________[m]:   5.000000000000e-01
 s066=Fixed_side_temperature,_mantle__________[deg_Celsius]:   3.000000000000e+01
 s067=Heat_outflow_on_this_side,_mantle_________[dependent]:   0.000000000000e+00
 s068=Fixed_heat_inflow_[opposite_side],_mantle_________[W]:   0.000000000000e+00
-s069=Fixed_side_temperature,_pipe_______________[inactive]:   3.000000000000e+01
-s070=Fixed_heat_outflow_on_this_side,_pipe______[inactive]:   0.000000000000e+00
-s071=Fixed_heat_inflow_[opposite_side],_pipe____[inactive]:   0.000000000000e+00
+s069=Fixed_side_temperature,_pipe____________[deg_Celsius]:   3.000000000000e+01
+s070=Heat_outflow_on_this_side,_pipe___________[dependent]:   0.000000000000e+00
+s071=Fixed_heat_inflow_[opposite_side],_pipe___________[W]:   0.000000000000e+00
 
 ================================================================================
 
-MATERIALS-1
+MATERIALS-0
 HELIOS
 waveguide_temperatures_vs_admissible_power
 
@@ -92,7 +92,7 @@ cooling_fluid_________________________________[short_hand]:  VOID
 
 ================================================================================
 
-OPERATIONS-1
+OPERATIONS-0
 HELIOS
 waveguide_temperatures_vs_admissible_power
 
@@ -105,10 +105,10 @@ free_/_forced_convection_within_waveguide____________[0/1]:     0
 fixed_mantle_temperature_/_convection________________[0/1]:     1
 free_/_forced_convection_in_environment______________[0/1]:     0
 additional_internal_inner_conductor_cooling__________[0/1]:     0
-mantle/_pipe/_both/_no/_side_temperatures_fixed__[1/2/3/0]:     1
+mantle/_pipe/_both/_no/_side_temperatures_fixed__[1/2/3/0]:     3
 mantle/_pipe/_both/_no/_side_heat_outflow_fixed__[1/2/3/0]:     0
 number_of_frequency_points______________________[0<N<=100]:    20
 
-HELIOS input parameter file par.log1 created:
-Tue Dec 21 15:20:22 2021
+HELIOS input parameter file par.log0 created:
+Fri Jan 28 19:58:58 2022
 ÿ

@@ -9,7 +9,7 @@
 *   routines of hlswrk(*).                                                     *
 *                                                                              *
 *   (C) SHEIN; Munich, December 2021                      Steffen Hein         *
-*   [ Update: December 17, 2021 ]                       <contact@sfenx.de>     *
+*   [ Update: January 31, 2022 ]                        <contact@sfenx.de>     *
 *                                                                              *
 *******************************************************************************/
 
@@ -34,13 +34,12 @@ short heliosdrv( int argn, char **args )
      *state = &helios;
 
    static TXCNSL
-     *csp; /* cf. txcnsl(*) [ text console ] */
+     *csp = &cns; /* cf. txcnsl(*) [ text console ] */
 
    static char 
-      item,
-      fleptr[STS_SIZE] = {null};
-
-   static char 
+      cpmrk = null,
+      fleptr[STS_SIZE] = {null},
+      lnestr[STS_SIZE] = {null},
       ptr[STS_SIZE] = {null},           
     **endp = null;
 
@@ -66,7 +65,7 @@ short heliosdrv( int argn, char **args )
    static char
       timeptr[STS_SIZE] = {null};
 
-/* prototyping: */
+/* prototypes: */
 
 # ifndef _CCBUG
    char
@@ -128,20 +127,20 @@ short heliosdrv( int argn, char **args )
 
    kk = tgetent( null, term );
 
-   if( ONE != kk )
+   if( kk != ONE )
    {
       errfle = fopen( errptr, "a+" );
 
       fprintf( errfle, \
          "\nError message from job %s, function %s :", \
-         lotos (( state->job ), null ), __func__ ); \
+         lotos ( state->job, null ), __func__ ); \
       fprintf( errfle, "\nCan't get the termcap info\n" );
 
       fclose ( errfle );
 
       fprintf( stderr, \
          "\n Error message from job %s, function %s :", \
-         lotos (( state->job ), null ), __func__ ); \
+         lotos ( state->job, null ), __func__ ); \
       fprintf( stderr, "\n Can't get the termcap info\n" );
 
       exit( EXIT_FAILURE );
@@ -153,40 +152,45 @@ short heliosdrv( int argn, char **args )
    kk = setvbuf( stdin, null, _IONBF, null );
    kk = setvbuf( stdout, null, _IONBF, null ); 
 /*............................................................................*/
-/* initialize: */
-
-   kk = null; do
-   {
-      tmpfle[kk] = null;
-      fleptr[kk] = null;
-   } while(( ++kk ) < STS_SIZE );
-/*...........................................................................*/
-   ( state->opp ) = &opr;
-   ( state->map ) = &mat;
-   ( state->prp ) = &par;
-   ( state->mtp ) = &met;
-   ( state->dlp ) = &del;
-   ( state->slp ) = &sld;
-   ( state->flp ) = &fld;
-   ( state->dmp ) = &dms;
-   ( state->elp ) = &elt;
-   ( state->thp ) = &trm;
-   ( state->hcp ) = &hcr;
-   ( state->cdp ) = &cdc;
-   ( state->rsp ) = &res;
+/* initialize file pointers */
 
    ii = null; do
    {
-      ( state->logfle[ii] ) = null;
-      ( state->errfle[ii] ) = null;
-   } while(( ++ii ) < STS_SIZE );
+      tmpfle[ii] = null;
+      fleptr[ii] = null;
+      ++ii;
+   } while( ii < STS_SIZE );
+/*...........................................................................*/
+/* bind structure pointers */
+
+   state->opp = &opr;
+   state->map = &mat;
+   state->prp = &par;
+   state->mtp = &met;
+   state->dlp = &del;
+   state->slp = &sld;
+   state->flp = &fld;
+   state->dmp = &dms;
+   state->elp = &elt;
+   state->thp = &trm;
+   state->hcp = &hcr;
+   state->cdp = &cdc;
+   state->rsp = &res;
+   state->csp = &cns;
+
+   ii = null; do
+   {
+      state->logfle[ii] = null;
+      state->errfle[ii] = null;
+      ++ii;
+   } while( ii < STS_SIZE );
 
    ( state->fleps ) = null;
    
-   strcpy(( state->name ), "HELIOS" );
-   strcpy(( state->text ), "waveguide_temperatures_vs_admissible_power" );
-   strcpy(( state->logfle ), logptr );
-   strcpy(( state->errfle ), errptr );
+   strcpy( state->name, "HELIOS" );
+   strcpy( state->text, "waveguide_temperatures_vs_admissible_power" );
+   strcpy( state->logfle, logptr );
+   strcpy( state->errfle, errptr );
 /*............................................................................*/
 /* read command line: */
 
@@ -220,8 +224,8 @@ short heliosdrv( int argn, char **args )
       } while ( --argn );
    };
 /*............................................................................*/
-   ( state->fstjob ) = job; /* the 1st job index */
-   ( state->job ) = job;    /* the running job index */
+   state->fstjob = job; /* the 1st job index */
+   state->job = job;    /* the running job index */
 
    strcpy( tmpfle, "/tmp/temp.XXXXX" );
 /*............................................................................*/
@@ -229,137 +233,242 @@ short heliosdrv( int argn, char **args )
    init_matter( );
    init_params( );
 /*............................................................................*/
-/* text mode: */
+/* 't'ext mode: */
 
-   if ((( state->uif ) != 'g' )
-     &&(( state->uif ) != 'b' )
-     &&(( state->uif ) != 'f' ))
+   if (( state->uif != 'g' )
+     &&( state->uif != 'b' )
+     &&( state->uif != 'f' ))
    {
-      ( state->uif ) = 't'; /* user interface: 't'ext console */
+      first_console:
 
+      state->uif = 't'; /* user interface: 't'ext console */
       csp = txcnsl( null ); /* initialize the text console */
 
-      ( csp->option ) = 3; do
+      cpmrk = null;
+      csp->option = 3; do
       {
-         strcpy(( csp->cmmnt ), "Welcome to HELIOS !" );
-         strcpy(( csp->cnfrm ), "Nothing done! Do you really want to quit ?" );
+         strcpy( csp->cmmnt, "Welcome to HELIOS !" );
 
-         ( csp->dfopt ) = 2; /* the initial default menu option */
-         ( csp->clscr ) = -ONE;
+         csp->clscr = - ONE;
+         csp->items = 3;
+         csp->dfopt = 2;          /* the initial default option */
+         csp->dflnf = csp->dfopt; /* set line feed before default option line */
 
-         ( csp->items ) = 3;
-         ( csp->dflnf ) = 0; /* 1: set line feed before default option line */
+         strcpy( csp->envmt, "HELIOS" );
+         strcpy( csp->tasks, "Select ...:" );
 
-         strcpy(( csp->envmt ), "HELIOS" );
-         strcpy(( csp->tasks ), "Select ...:" );
+         strcpy( lnestr, "* parameter input file \"" );
+         strcat( lnestr, IPT_PARINIT );
+         strcat( lnestr, lotos( job, null ));
+         strcat( lnestr, "\"");
 
-         strcpy(( csp->mline[1] ), "* parameter file input " );
-         strcpy(( csp->mline[2] ), "* text console input " );
-         strcpy(( csp->mline[3] ), "* support" );
+         strcpy( csp->mline[1], lnestr ); 
+         strcpy( csp->mline[2], "* text console input " );
+         strcpy( csp->mline[3], "* support" );
 
-         strcpy(( csp->escpe ), "End of program / escape" );
+         strcpy( csp->escpe, "End of program / escape" );
+
+         if ( state->job == null )
+            strcpy( csp->cnfrm,\
+               "Nothing done! Do you really want to quit ?" );
+         else
+            strcpy( csp->cnfrm, 
+               "Do you really want to quit ?" );
+
 /*............................................................................*/
          csp = txcnsl( csp );   /* build the [ start ] menu                   */
 /*............................*/
-         if (( csp->option ) == 0 )
+
+         switch ( csp->option )
+	 {
+           default:
+           break;
+
+/*............................................................................*/
+	   case 0:
+	   case 'y':
+           case 'Y':
             return null;
-         else if (( csp->option ) == 1 )
-            ( state->uif ) = 'f'; /* 'f'ile input mode */
-         else if (( csp->option ) == 3 )
-         {
+	   break;
+
+/*............................................................................*/
+	   case 1:
+/* clear screen: */
+
+            fprintf( stdout, CLEAR_LINE );
+            fprintf( stdout, "\n ======================================="
+                             "=======================================" );
+            nseconds = time( timer );
+            strcpy( timeptr, ctime( &nseconds ));
+            fprintf( stdout, "\n ");
+            PRBLDCLR( "HELIOS started:");
+            fprintf( stdout, "\n %s", timeptr );
+            PRNORMAL( "" );
+
+            cpmrk = TWO;
+	   break;
+
+/*............................................................................*/
+           case 2:         
+	   break;
+
+/*............................................................................*/
+	   case 3:
+	    fprintf( stdout, " %s",\
+            "======================================="\
+	    "=======================================" );
             PRBLDCLR( "" );
 	    fprintf( stdout, "\n Call: +49+8061.936362 or" );
             fprintf( stdout, "\n email: contact@sfenx.de" );
 	    fprintf( stdout, "\n [ Don't hesitate to ask your questions.]" );
-            PRNORMAL( "\n");
-            ( csp->dfopt ) = 2; /* the initial default menu option */
-         }
-         else /* csp->option == 2, e.g. */
-            ( state->uif ) = 't';
-      } while(( csp->option ) == 3 );
+            PRNORMAL( "");
+
+            csp->dfopt = 2; /* next default: text console input */
+           break; 
+         };
+      } while( csp->option == 3 );
    };
 
-   if (( state->uif ) == 't' ) /* text console input */
+   if (( cpmrk < TWO )
+     &&( state->uif == 't' )) /* text console input */
    {
-      strcpy(( csp->cmmnt ), "Welcome back to HELIOS !" );
-      strcpy(( csp->cnfrm ), "Nothing done! Do you really want to quit ?" );
+      strcpy( csp->cmmnt, "Welcome back to HELIOS !" );
+      strcpy( csp->cnfrm, "Nothing done! Do you really want to quit ?" );
 
-      ( csp->dfopt ) = 4; /* the initial default menu option */
-      ( csp->clscr ) = 1;
+      csp->dfopt = 4; /* next default: complete configuration */
+      csp->clscr = 1;
 
-     text_menu:
+     second_console:
 
-      ( csp->items ) = 6;
-      ( csp->dflnf ) = 6; /* set special line feed before */
-                          /* that option line */
+      cpmrk = null;
+      csp->items = 6;
+      csp->dflnf = csp->dfopt; /* set line feed before default option */
 
       nseconds = time( timer );
 
       strcpy( timeptr, ctime( &nseconds ));
-      strcpy(( csp->title ), "Program HELIOS: " );
-      strncat(( csp->title ), timeptr, 24 );
+      strcpy( csp->title, "Program HELIOS: " );
+      strncat( csp->title, timeptr, 24 );
 
-      strcpy(( csp->envmt ), "HELIOS" );
-      strcpy(( csp->tasks ), "Define ...:" );
+      strcpy( csp->envmt, "HELIOS" );
+      strcpy( csp->tasks, "Define ...:" );
 
-      strcpy(( csp->mline[1] ), "* computation modes" );
-      strcpy(( csp->mline[2] ), "* conductors, dielectric materials" );
-      strcpy(( csp->mline[3] ), "* geometric and physical parameters" );
-      strcpy(( csp->mline[4] ), "* the complete configuration" );
-      strcpy(( csp->mline[5] ), "* start computation" );
-      strcpy(( csp->mline[6] ), "* support" );
+      strcpy( csp->mline[1], "* computation modes" );
+      strcpy( csp->mline[2], "* conductors, dielectric materials" );
+      strcpy( csp->mline[3], "* geometric and physical parameters" );
+      strcpy( csp->mline[4], "* the complete configuration" );
+      strcpy( csp->mline[5], "* start computation" );
+      strcpy( csp->mline[6], "* support" );
 
-      strcpy(( csp->escpe ), "End of program / escape" );
+      strcpy( csp->escpe, "End of program / escape" );
+
+      if ( state->job == null )
+         strcpy( csp->cnfrm,\
+            "Nothing done! Do you really want to quit ?" );
+      else
+         strcpy( csp->cnfrm, 
+            "Do you really want to quit ?" );
+
 /*............................................................................*/
       csp = txcnsl( csp );      /* build the [ start ] menu                   */
 /*............................*/
-      item = ( csp->option );
+
       ( state->act ) = null; /* the actual prog stage [ null = par input ] */
 
-      switch( item )
+      switch( csp->option )
       {
         default:
          break;
 
         case 0:
+        case 'y':
+        case 'Y':
          goto terminal;
          break;
 
         case 1:
 /*............................................................................*/
-         input( "operations" );     /*                                        */
-/*................................*/
+         ii = input( "operations" );     /*                                        */
+/*.....................................*/
+         if ( ii == -ONE ) 
+	   return null;
+         else if ( ii == ONE ) /*start computation */
+	 {
+           cpmrk = ONE;
+	   break;
+         };
+/*............................................................................*/
          ( csp->dfopt ) = 2; /* the next default menu option */
          ( csp->clscr ) = 1; /* N != 0: clear screen; scroll N lines */
          break;
 
         case 2:
 /*............................................................................*/
-         input( "materials" );     /*                                         */
-/*...............................*/
+         ii = input( "materials" );     /*                                         */
+/*....................................*/
+         if ( ii == -ONE ) 
+	   return null;
+         else if ( ii == ONE ) /*start computation */
+	 {
+           cpmrk = ONE;
+	   break;
+         };
+/*...........................................................................*/
          ( csp->dfopt ) = 3; /* the next default menu option */
          ( csp->clscr ) = 1; /* N != 0: clear screen; scroll N lines */
          break;
 
         case 3:
 /*............................................................................*/
-         input( "parameters" );     /*                                        */
-/*................................*/
+         ii = input( "parameters" );     /*                                        */
+/*.....................................*/
+         if ( ii == -ONE ) 
+	   return null;
+         else if ( ii == ONE ) /*start computation */
+	 {
+           cpmrk = ONE;
+	   break;
+         };
+/*...........................................................................*/
          ( csp->dfopt ) = 5; /* the next default menu option */
          ( csp->clscr ) = 1; /* N != 0: clear screen; scroll N lines */
          break;
 
         case 4:
 /*............................................................................*/
-         input( "operations" );
-         input( "materials" );
-         input( "parameters" );
+         ii = input( "operations" );
+         if ( ii == -ONE ) 
+	   return null;
+         else if ( ii == ONE ) /*start computation */
+	 {
+           cpmrk = ONE;
+	   break;
+         };
+
+         ii = input( "materials" );
+         if ( ii == -ONE ) 
+	   return null;
+         else if ( ii == ONE ) /*start computation */
+	 {
+           cpmrk = ONE;
+	   break;
+         };
+
+         ii = input( "parameters" );
+         if ( ii == -ONE ) 
+	   return null;
+         else if ( ii == ONE ) /*start computation */
+	 {
+           cpmrk = ONE;
+	   break;
+         };
 /*...........................................................................*/
          ( csp->dfopt ) = 5; /* the next default menu option */
          ( csp->clscr ) = 1; /* N != 0: clear screen; scroll N lines */
          break;
 
         case 5:
+         cpmrk = ONE;
          break;
 
         case 6:
@@ -372,38 +481,44 @@ short heliosdrv( int argn, char **args )
          break;
       };
 
-      if (( null < item )
-        &&( item != FIVE ))
+      if (( null < csp->option )
+        &&( cpmrk == null ))
       {
-         strcpy(( csp->cmmnt ), "Welcome back to HELIOS !" );
-         goto text_menu;
+         strcpy( csp->cmmnt, "Welcome back to HELIOS !" );
+         goto second_console;
       }
-      else if ( item == FIVE )
+      else if ( null < cpmrk )
       {
          rvise_params( );
 /*............................................................................*/
 /* clear screen: */
-         printf( CLEAR_LINE );
-  
-         printf( "\n ==================================="
-            "===========================================" );
+         fprintf( stdout, CLEAR_LINE );
+         fprintf( stdout, "\n ======================================="
+                             "=======================================" );
          nseconds = time( timer );
          strcpy( timeptr, ctime( &nseconds ));
-         printf( "\n ");
+         fprintf( stdout, "\n ");
          PRBLDCLR( "HELIOS started:");
-         printf( "\n %s", timeptr );
+         fprintf( stdout, "\n %s", timeptr );
          PRNORMAL( "" );
-      }; /* end if item == 5 */
-   } /* end if ( state->uif ) != 'f','g','b' */
-   else /* if (( state->uif ) != 't' ) *//* parameter 'f'ile input */
-   {                           /* [graphical mode, e.g.] */
+	 /*
+            "\n ======================================="
+               "=======================================" ); */
+      }; /* end if cpmrk == ONE */
+      
+     goto contd;
+   }; /* end if ( state->uif ) != 'f','g','b' */
+
+   if (( cpmrk == TWO )
+     ||( state->uif != 't' )) /* parameter 'f'ile input */
+   {                          /* [graphical mode, e.g.] */
 /*............................................................................*/
 /* enter computation modes: */
 
       if ( null == fleptr[null] )
       {
          strcpy( fleptr, IPT_PARINIT );
-         strcat( fleptr, lotos(( state->job ), null ));
+         strcat( fleptr, lotos( state->job, null ));
       };
 
       rvise_operts( ); /* revise/reconfigure ...*/
@@ -411,7 +526,7 @@ short heliosdrv( int argn, char **args )
       rvise_operts( ); /* revise/reconfigure ...*/
 
       strcpy( tmpfle, "opr.log" );
-      strcat( tmpfle, lotos(( state->job ), null ));
+      strcat( tmpfle, lotos( state->job, null ));
 
       store_operts( tmpfle, 'o' ); /* restore revised file as log file */
 /*............................................................................*/
@@ -422,7 +537,7 @@ short heliosdrv( int argn, char **args )
       rvise_matter( ); /* revise/reconfigure ...*/
 
       strcpy( tmpfle, "mat.log" );
-      strcat( tmpfle, lotos(( state->job ), null ));
+      strcat( tmpfle, lotos( state->job, null ));
 
       store_matter( tmpfle, 'm' ); /* restore revised file as log file */
 /*............................................................................*/
@@ -434,6 +549,8 @@ short heliosdrv( int argn, char **args )
 /*............................................................................*/
 /* open process log file: */
 
+  contd:
+
    logfle = fopen( logptr , "a+" );
    setvbuf( logfle, null, _IONBF, null );
 
@@ -441,7 +558,7 @@ short heliosdrv( int argn, char **args )
    strcpy( timeptr, ( ctime( &nseconds ) + 11 ));
 
    fprintf( logfle, "\nJob no " );
-   fprintf( logfle, "%s ", ( lotos(( state->job ), null )));
+   fprintf( logfle, "%s ", ( lotos( state->job, null )));
    fprintf( logfle, "launched at " );
    fprintf( logfle, "%-.8s", timeptr );
 
@@ -455,7 +572,7 @@ short heliosdrv( int argn, char **args )
 
    rvise_params( ); /* the final parameter revision */
    strcpy( fleptr, IPT_PARLOG );
-   strcat( fleptr, lotos(( state->job ), null ));
+   strcat( fleptr, lotos( state->job, null ));
    store_params( fleptr, 'p' ); /* restore revised parameter file as log file */
    
 /* initialize: */
@@ -463,26 +580,25 @@ short heliosdrv( int argn, char **args )
 /*............................................................................*/
    state = initlze( state );     /*                                           */
 /*.............................*/
-/*
-   fprintf( stdout, "\n%s", "initialization ready" );
-   exit (null) ;
-*/
-/* ... and start the iterations: */
+/* now  start the iterations: */
 
 /*............................................................................*/
    state = hlswrk( state );     /*                                            */
 /*............................*/
 /* ... it's terminated [ continue ? ] */
 
-   if (( state->uif ) == 't' ) /* text input */
+   if ( state->uif == 't' ) /* text input */
    {
-      ( state->job )++; /* next job label */
+      ++( state->job ); /* next job label */
 
-      strcpy(( csp->cmmnt ), "Welcome back to HELIOS !" );
-      ( csp->dfopt ) = 0; /* the next default menu option */
-      ( csp->clscr ) = 0; /* N != 0: clear screen; scroll N lines */
+      strcpy( csp->cmmnt, "Welcome back to HELIOS !" );
+      csp->dfopt = 0; /* the next default menu option */
+      csp->clscr = 0; /* N != 0: clear screen; scroll N lines */
 
-      goto text_menu;
+      if ( cpmrk == TWO )
+         goto first_console;
+      else
+         goto second_console;
    };
    
    logfle = fopen( logptr, "a+" );
@@ -492,15 +608,12 @@ short heliosdrv( int argn, char **args )
 
    fprintf( logfle, "\nJob no %d terminated ", ( state->job ));
    fprintf( logfle, "%-.20s", timeptr );
-   fprintf( logfle, "\n%s", dline );
+   fprintf( logfle, "\n%s=", dline );
 
    ( state->fleps ) = ftell( logfle );
    fclose( logfle );
 
-  terminal:;
-/*
-   heliostest( state ); 
-*/
+  terminal:
    return null;
 }  
 /*============================================================================*/

@@ -9,7 +9,7 @@
 *   It returns the final results and plot data by function values(*).          *
 *                                                                              *
 *   (C) SHEIN; Munich, December 2021                      Steffen Hein         *
-*   [ Update: December 17, 2021 ]                       <contact@sfenx.de>     *
+*   [ Update: January 31, 2022 ]                        <contact@sfenx.de>     *
 *                                                                              *
 *******************************************************************************/
 # ifndef HLS_SDNODE
@@ -333,16 +333,18 @@ hlswrk( HELIOSSTATE *state )
    {
       mxitr = WRK_MXITSD;
       fstmm = mxitr - 3;
-   }; /* display start message: */
+   };
 /*...........................................................................*/
-   if (( stp->uif ) == 't' )
+
+/* display start message */
+   if ( stp->uif == 't' )
    {
-      ( dsp->option ) = start;
+      dsp->option = start;
       dsplay( dsp );
-      ( dsp->option ) = messge;
-      strcpy(( dsp->messge ), "[frequency_sweep]" );
+      dsp->option = messge;
+      strcpy( dsp->messge, "[frequency_sweep]" );
       dsplay( dsp );
-      ( dsp->option ) = cursor;
+      dsp->option = cursor;
    }
    else
    {
@@ -353,9 +355,9 @@ hlswrk( HELIOSSTATE *state )
 /*............................................................................*/
 /* NOW START THE SWEEP */
 /*............................................................................*/
-   ( dsp->range ) = frn;
+   dsp->range = frn;
 
-   if (( elp->frq0 ) <= ( elp->frq1 ))
+   if ( elp->frq0 <= elp->frq1 )
    {
       frc = null;
       sgn = ONE;

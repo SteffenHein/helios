@@ -9,7 +9,7 @@
 *   heat resistances between parallel conductors                               *
 *                                                                              *
 *   (C) SHEIN; Munich, December 2021                      Steffen Hein         *
-*   [ Update: December 17, 2021 ]                       <contact@sfenx.de>     *
+*   [ Update: Janzary 31, 2022 ]                        <contact@sfenx.de>     *
 *                                                                              *
 *******************************************************************************/
 # define _POSIX_SOURCE 1 /* some headers of the POSIX.1 standard will be used */
@@ -140,7 +140,6 @@
 /*----------------------------------------------------------------------------*/
 /* structures typedefs, etc.: */
 
-# include "../math/txctyp.h"
 # include "types.h"
 /*============================================================================*/
 /* include the function body [ THERMDYN *kelvin( HELIOSSTATE *state ) ]: */

@@ -82,7 +82,7 @@ dsplay( const char *messge, const long state, const char option )
             printf( "%c%c\b", DSP_FLECHE, DSP_POINTE );
          };
          ( dsp->crs )++ ;
-         cc++ ;
+         ++cc;
       };
 
       return dsp;
@@ -96,7 +96,7 @@ dsplay( const char *messge, const long state, const char option )
       while( cc <= DSP_LINE__ )
       {
          printf( " " );
-         cc++ ;
+         ++cc;
       };
       printf( "\r" );
 
@@ -104,7 +104,7 @@ dsplay( const char *messge, const long state, const char option )
       while( cc < DSP_LMRGN_ )
       {
          printf( " " );
-         cc++ ;
+         ++cc;
       };
 
       if( messge != null )
@@ -125,20 +125,21 @@ dsplay( const char *messge, const long state, const char option )
       while( cc < DSP_LMRGN_ )
       {
          printf( " " );
-         cc++ ;
+         ++cc;
       };
-      printf( "%s\n", messge );
+/*      printf( "%s\n", messge ); CHANGED */
+      printf( "%s", messge );
 
       cc = null;
       while( cc < DSP_LMRGN_ )
       {
          printf( " " );
-         cc++ ;
+         ++cc;
       };
       while( cc < DSP_LINE__ )
       {
          printf( "%c", DSP_TRACE_ );
-         cc++ ;
+         ++cc;
       };
       printf( "%c\r", DSP_MEET__ );
 
@@ -146,7 +147,7 @@ dsplay( const char *messge, const long state, const char option )
       while( cc < DSP_LMRGN_ )
       {
          printf( " " );
-         cc++ ;
+         ++cc;
       };
       printf( "%c", DSP_MEET__ );
 
@@ -171,7 +172,7 @@ dsplay( const char *messge, const long state, const char option )
       while( cc < lc )
       {
          dsp->dsplay[dc+cc] = messge[cc];
-         cc++ ;
+         ++cc;
       };
 
       dsp->sln = strlen( dsp->dsplay );
@@ -184,7 +185,7 @@ dsplay( const char *messge, const long state, const char option )
       while( cc < DSP_LMRGN_ )
       {
          printf( " " );
-         cc++ ;
+         ++cc;
       }; 
 # endif
 
@@ -197,7 +198,7 @@ dsplay( const char *messge, const long state, const char option )
             printf( "%c", DSP_POINTE );
          else if( dsp->crs < cc )
             printf( "%c", dsp->dsplay[cc] );
-         cc++ ;
+         ++cc;
       };
       while ( dsp->crs < cc )
       {

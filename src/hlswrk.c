@@ -10,7 +10,7 @@
 *   It returns the final results and plot data by function values(*).          *
 *                                                                              *
 *   (C) SHEIN; Munich, December 2021                      Steffen Hein         *
-*   [ Update: December 17, 2021 ]                       <contact@sfenx.de>     *
+*   [ Update: January 31, 2022 ]                        <contact@sfenx.de>     *
 *                                                                              *
 *******************************************************************************/
 # define _POSIX_SOURCE 1 /* some headers of the POSIX.1 standard will be used */
@@ -25,7 +25,6 @@
 /*----------------------------------------------------------------------------*/
 # include "../math/maths.h"
 # include "../math/consts.h"
-# include "../math/txctyp.h"
 /*----------------------------------------------------------------------------*/
 /* Edit and customize this general configuration header: */
 # include "../CONFIG.H" 

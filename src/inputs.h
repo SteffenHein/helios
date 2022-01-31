@@ -1,4 +1,3 @@
-/* [ file: input.h ] */
 # define DO_INPUT "input(*)"
 /*******************************************************************************
 *                                                                              *
@@ -22,7 +21,7 @@
 *   Again, these parameters may be revised in function rvise_params( ).        *
 *                                                                              *
 *   (C) SHEIN; Munich, December 2021                      Steffen Hein         *
-*   [ Update: December 17, 2021 ]                       <contact@sfenx.de>     *
+*   [ Update: January 31, 2022 ]                        <contact@sfenx.de>     *
 *                                                                              *
 *******************************************************************************/
 
@@ -192,12 +191,11 @@ short input ( char *option )
      *state = &helios;
 
    static TXCNSL 
-     *csp;
+     *csp = &cns;
 
    static short
       ii = null,
       ind = null,
-      item = null,
       metals = CMETALS,
       dielectrics = DIELCTS,
       solids = SLDMTRS,
@@ -210,8 +208,6 @@ short input ( char *option )
       timeptr[STS_SIZE] = {null};
 
    const char
-      items1 = SIX,
-      items2 = SIX,
      *oprlog = IPT_OPRLOG,
      *matlog = IPT_MATLOG,
      *parlog = IPT_PARLOG,
@@ -301,12 +297,13 @@ short input ( char *option )
       ptr[ii] = null;
       fleptr[ii] = null;
       timeptr[ii] = null;
-   } while(( ++ii ) < STS_SIZE );
+      ++ii;
+   } while( ii < STS_SIZE );
    do
    {
       ptr[ii] = null;
-   } while(( ++ii ) < ( 2*STS_SIZE ));
-
+      ++ii;
+   } while( ii < ( 2*STS_SIZE ));
 /*...........................................................................*/
 /* option "operations": */
 
@@ -352,79 +349,91 @@ short input ( char *option )
       strcpy( ptr, HLS_PAGER );
       strcat( ptr, " " );
       strcat( ptr, tmpfle );
-/*............................................................................*/
-      system ( ptr );                 /* edit [evtlly modify] operations file */
+
+/*....................................*/
+      system( ptr );                  /* edit operation parameters file       */
       rread_operts( tmpfle, 't' );   /*                                       */
       rvise_operts( );              /*                                        */
       store_operts( tmpfle, 't' ); /*   restore revised operats on tmp file   */
 /*...............................*/
 # endif
 /*............................................................................*/
-
-      csp = txcnsl( null ); /* initialize menu */
-      item = items1;
-      ( csp->clscr ) = 1; /* if !=0: clear screen; scroll that number of lines*/
+      csp = txcnsl( null ); /* clear text console */
+      csp->clscr = 1; /* if N != 0: clear screen; scroll N lines */
+      csp->dfopt = 3;
 
      opr_menu:
 
-      ( csp->items ) = items1;
-      ( csp->dfopt ) = item;
-      ( csp->dflnf ) = item; /* set line feed before option menu line */
+      csp->items = 7;
+      csp->dflnf = csp->dfopt; /* set line feed before option menu line */
 
       nseconds = time( timer );
       strcpy( timeptr, ctime( &nseconds ));
-      strcpy(( csp->title ), "Program HELIOS: " );
-      strncat(( csp->title ), timeptr, 24 );
+      strcpy( csp->title, "Program HELIOS: " );
+      strncat( csp->title, timeptr, 24 );
 
-      strcpy(( csp->envmt ), "INPUT" );
-      strcpy(( csp->cmmnt ), "Computation modes" );
-      strcpy(( csp->tasks ), "OPERATIONS" );
-      strcpy(( csp->mline[1] ), "* Display presently defined operation modes" );
-      strcpy(( csp->mline[2] ), "* Enter new operation modes from file" );
-      strcpy(( csp->mline[3] ), "* Edit [ and evtly. modify ] operation modes" );
-      strcpy(( csp->mline[4] ), "* Reload default operation modes" );
-      strcpy(( csp->mline[5] ), "* Print operation modes" );
-      strcpy(( csp->mline[6] ), "* Continue" );
-      strcpy(( csp->escpe ), "End of program / escape" );
+      strcpy( csp->envmt, "INPUT" );
+      strcpy( csp->cmmnt, "Computation modes" );
+      strcpy( csp->tasks, "OPERATIONS" );
+
+      strcpy( csp->mline[1], "* Display presently defined operation modes" );
+      strcpy( csp->mline[2], "* Enter new operation modes from file" );
+      strcpy( csp->mline[3], "* Edit [ and evtly. modify ] operation modes" );
+      strcpy( csp->mline[4], "* Reload default operation modes" );
+      strcpy( csp->mline[5], "* Print operation modes" );
+      strcpy( csp->mline[6], "* Start computation" );
+      strcpy( csp->mline[7], "* Continue" );
+
+      strcpy( csp->escpe, "End of program / escape" );
+
+      if ( state->job == null )
+         strcpy( csp->cnfrm,\
+            "Nothing done! Do you really want to quit ?" );
+      else
+         strcpy( csp->cnfrm, 
+            "Do you really want to quit ?" );
+
 /*............................................................................*/
-      csp = txcnsl( csp );   /* call the menu building function               */
+      csp = txcnsl( csp );   /* menu building function */
 /*.........................*/
 
-      item = ( csp->option );
+      switch( csp->option )
+      {
+        default: /* continue program [ go to material parameter input ] */
+        break;
 
 /*............................................................................*/
-      
-      switch ( item )
-      {
-        default: /* continue program [ e.g. item = items1 ] */
-         break;
+        case 1:  /* display the current configuration */
 
-        case 1:  /* display the actual configuration [ on screen ] */
-
+/*............................................................................*/
 # if defined ( HLS_PAGER )
          strcpy( ptr, HLS_PAGER );
          strcat( ptr, " " );
          strcat( ptr, tmpfle );
-/*............................................................................*/
-         system ( ptr );               /* edit [evtlly modify] divisions file */
+
+/*.....................................*/
+         system( ptr );                /* edit divisions file */
 /*...................................*/
 # else
-         printf( "\n\n %s", ( state->name ));
-         printf( "\n %s", ( state->text ));
+         printf( "\n\n %s", state->name );
+         printf( "\n %s", state->text );
 
          printf( "\n\n %-d  %s\n", opr.n[null], opr.ntx[null] );
 
          for ( ii=ONE; ii<=opr.n[null]; ii++ )
             printf( "\n %-s:   %d", opr.ntx[ii], opr.n[ii] );
 # endif
-         item = items1;
-         ( csp->clscr ) = 0; /* != 0: clear screen; scroll that num of lines */
-         goto opr_menu;
-         break;
+/*............................................................................*/
+         csp->clscr = 0; /* if N != 0: clear screen; scroll N lines */
 
+         csp->dfopt = 3;
+         goto opr_menu;
+        break;
+
+/*............................................................................*/
         case 2: /* enter another configuration from file */
 
-         printf( "\n Please enter filename [ Continue/"
+         fprintf( stdout, "\n Please enter filename [ Continue/"
             "Escape: null ] >----> " );
          scanf( "%s", ptr );
 
@@ -433,88 +442,112 @@ short input ( char *option )
             remove( tmpfle );
 
             PRBLDCLR( "" );
-            printf( "\r%*s", 79, "INPUT" );
+            fprintf( stdout, "\r%*s", 79, "INPUT" );
             PRNORMAL( "" );
-            printf( "\n ======================================="
+            fprintf( stdout, "\n ======================================="
                        "=======================================" );
             return -ONE;
          };
-/*............................................................................*/
+
+/*......................................*/
          rread_operts( ptr, 'f' );      /* enter the new configuration file   */
          rvise_operts( );              /*  revise/reconfigure ...             */
          store_operts( tmpfle, 't' ); /*   restore on tmp file                */
 /*..................................*/
-         item = items1;
-         ( csp->clscr ) = 1; /* N != 0: clear screen; scroll that nbr of lines*/
+         csp->clscr = 1; /* if N != 0: clear screen; scroll N lines */
+
+         csp->dfopt = 7;
          goto opr_menu;
-         break;
+        break;
 
-        case 3:  /* edit and/or modify the actual configuration */
+/*............................................................................*/
+        case 3:  /* edit the current "operations" file */
 
+/*............................................................................*/
 # if defined ( HLS_EDITOR )
          strcpy( ptr, HLS_EDITOR );
          strcat( ptr, " " );
          strcat( ptr, tmpfle );
-/*............................................................................*/
-         system ( ptr );                 /* edit [evtlly modify] tmp opr file */
+
+/*.......................................*/
+         system( ptr );                  /* edit operation parameters file    */
          rread_operts( tmpfle, 't' );   /*  re-read temporary operations file */
          rvise_operts( );              /*   revise/reconfigure ...            */
          store_operts( tmpfle, 't' ); /*    restore on tmp file               */
 /*..................................*/
 # else
-         printf( "\n No editor is defined for this option !" );
+         fprintf( stdout, 
+	    "\n No editor defined in file \"CONFIG\" !" );
 # endif
-         item = items1;
-         ( csp->clscr ) = 1; /* N != 0: clear screen; scroll that nbr of lines*/
-         goto opr_menu;
-         break;
+/*............................................................................*/
+         csp->clscr = 1; /* if N != 0: clear screen; scroll N lines */
 
-        case 4:  /* reload the default configuration */
+         csp->dfopt = 7;
+         goto opr_menu;
+        break;
 
 /*............................................................................*/
+        case 4:  /* reload the default operation parameters */
+
+/*......................................*/
          deflt_operts( );               /* enter default divions              */
          rvise_operts( );              /*  revise/reconfigure ...             */
          store_operts( tmpfle, 't' ); /*   store on tmp file                  */
 /*..................................*/
-         item = items1;
-         ( csp->clscr ) = 1; /* N != 0: clear screen; scroll that nbr of lines*/
+         csp->clscr = 1; /* if N != 0: clear screen; scroll N lines */
+
+         csp->dfopt = 7;
          goto opr_menu;
-         break;
+        break;
 
+/*............................................................................*/
         case 5:
-
+		
+/*............................................................................*/
 # if defined ( HLS_PRINTER )
          strcpy( ptr, HLS_PRINTER );
          strcat( ptr, " " );
          strcat( ptr, tmpfle );
-/*............................................................................*/
-         system ( ptr );               /* print temporary operations file */
+
+/*....................................*/
+         system( ptr );               /* print operation parameters */
 /*..................................*/
 # else
          printf( "\n No printer is defined for this option !" );
 # endif
-         item = items1;
-         ( csp->clscr ) = 1; /* N != 0: clear screen; scroll that nbr of lines*/
-         goto opr_menu;
-         break;
+/*............................................................................*/
+         csp->clscr = 1; /* if N != 0: clear screen; scroll N lines */
 
+         csp->dfopt = 7;
+         goto opr_menu;
+        break;
+
+/*............................................................................*/
+        case 6:
+         return ONE;
+	break;
+
+/*............................................................................*/
         case 0:  /* end of program / escape */
+	case 'y':
+	case 'Y':
 
          remove( tmpfle );
 
          PRBLDCLR( "" );
-         printf( "\r%*s", 79, "INPUT" );
          PRNORMAL( "" );
+
          return -ONE;
-         break;
+        break;
       }; /* end switch(*) */
 /*............................................................................*/
       remove( tmpfle );
 
       strcpy( fleptr, oprlog );
-      strcat( fleptr, lotos(( state->job ), null ));
+      strcat( fleptr, lotos( state->job, null ));
 
       printf( "\n opened: Operation logfile %s ", fleptr );
+      
 /*............................................................................*/
       store_operts( fleptr, 'o' );  /* save final configuration on log file   */
 /*................................*/
@@ -537,6 +570,7 @@ short input ( char *option )
       dielectrics = mat.d;
       solids = mat.s;
       fluids = mat.f;
+
 /*............................................................................*/
       ind = rvise_matter( );      /*                                          */
 /*..............................*/
@@ -609,6 +643,7 @@ short input ( char *option )
 # endif                                                        
 /*............................................................................*/
 # endif
+
 /*............................................................................*/
       store_matter( tmpfle, 't' );          /* store prmtrs on temporary file */
 /*.......................................,*/
@@ -617,61 +652,71 @@ short input ( char *option )
       strcpy( ptr, HLS_PAGER );
       strcat( ptr, " " );
       strcat( ptr, tmpfle );
-/*............................................................................*/
-      system ( ptr );                 /* edit [evtlly modify] metals file     */
+
+/*....................................*/
+      system( ptr );                  /* edit material parameters file        */
       rread_matter( tmpfle, 't' );   /*  re-read materials from tmp file      */
       rvise_matter( );              /*   revise/reconfigure ...               */
       store_matter( tmpfle, 't' ); /*    restore on temporary file            */
 /*...............................*/
 # endif
 /*............................................................................*/
+      csp = txcnsl( null ); 
 
-      csp = txcnsl( null ); /* initialize menu */
-      item = items2;
-      ( csp->clscr ) = 1; /* if !=0: clear screen; scroll that number of lines*/
+      csp->clscr = 1; /* if N != 0: clear screen; scroll N lines */
+      csp->dfopt = 3;
 
      mat_menu:
 
-      ( csp->items ) = items2;
-      ( csp->dfopt ) = item;
-      ( csp->dflnf ) = item; /* set line feed before option menu line */
+      csp->items = 7;
+      csp->dflnf = csp->dfopt; /* set line feed before option menu line */
 
       nseconds = time( timer );
       strcpy( timeptr, ctime( &nseconds ));
-      strcpy(( csp->title ), "Program HELIOS: " );
-      strncat(( csp->title ), timeptr, 24 );
+      strcpy( csp->title, "Program HELIOS: " );
+      strncat( csp->title, timeptr, 24 );
 
-      strcpy(( csp->envmt ), "INPUT" );
-      strcpy(( csp->cmmnt ), "Conductor metals and dielectric" );
-      strcpy(( csp->tasks ), "MATERIALS" );
-      strcpy(( csp->mline[1] ), "* Display the presently charged materials" );
-      strcpy(( csp->mline[2] ), "* Enter new materials from file" );
-      strcpy(( csp->mline[3] ), "* Edit [ and evtly. modify ] the materials" );
-      strcpy(( csp->mline[4] ), "* Reload the default materials" );
-      strcpy(( csp->mline[5] ), "* Print the materials" );
-      strcpy(( csp->mline[6] ), "* Continue" );
-      strcpy(( csp->escpe ), "End of program / escape" );
+      strcpy( csp->envmt, "INPUT" );
+      strcpy( csp->cmmnt, "Conductor metals and dielectric" );
+      strcpy( csp->tasks, "MATERIALS" );
+      
+      strcpy( csp->mline[1], "* Display the presently charged materials" );
+      strcpy( csp->mline[2], "* Enter new materials from file" );
+      strcpy( csp->mline[3], "* Edit [ and evtly. modify ] the materials" );
+      strcpy( csp->mline[4], "* Reload the default materials" );
+      strcpy( csp->mline[5], "* Print the materials" );
+      strcpy( csp->mline[6], "* Start computation" );
+      strcpy( csp->mline[7], "* Continue" );
+
+      strcpy( csp->escpe, "End of program / escape" );
+
+      if ( state->job == null )
+         strcpy( csp->cnfrm,\
+            "Nothing done! Do you really want to quit ?" );
+      else
+         strcpy( csp->cnfrm, 
+            "Do you really want to quit ?" );
+
 /*............................................................................*/
-      csp = txcnsl( csp );   /* call the menu building function               */
+      csp = txcnsl( csp );   /* menu building function */
 /*.........................*/
 
-      item = ( csp->option );
-
-/*............................................................................*/
-      
-      switch ( item )
+      switch( csp->option )
       {
-        default: /* continue program [ e.g item = items2 ] */
+        default: /* continue program [ go to parameter input ] */
          break;
 
-        case 1:  /* display the actual configuration [ on screen ] */
+/*............................................................................*/
+        case 1:  /* display the currently charged materials */
 
+/*............................................................................*/
 # if defined ( HLS_PAGER )
          strcpy( ptr, HLS_PAGER );
          strcat( ptr, " " );
          strcat( ptr, tmpfle );
-/*............................................................................*/
-         system ( ptr );               /* edit [evtlly modify] divisions file */
+
+/*.....................................*/
+         system( ptr );                /* edit divisions file */
 /*...................................*/
 # else
          metals = mat.m;
@@ -700,11 +745,14 @@ short input ( char *option )
          for ( ii=ONE; ii<=fluids; ii++ )
             printf( "\n %s %s", mat.ftx[ii], mat.fsx[ii] );
 # endif
-         item = items2;
-         ( csp->clscr ) = 0; /* N !=0 : clear screen; scroll that nbr of lines*/
-         goto mat_menu;
-         break;
+/*............................................................................*/
+         csp->clscr = 0; /* if N != 0: clear screen; scroll N lines */
 
+         csp->dfopt = 7;
+         goto mat_menu;
+        break;
+
+/*............................................................................*/
         case 2: /* enter another configuration from file */
 
          printf( "\n Please enter filename [ Continue/"
@@ -714,93 +762,117 @@ short input ( char *option )
          if( *ptr == '0' )
          { 
             remove( tmpfle );
+
             PRBLDCLR( "" );
-            printf( "\r%*s", 79, "INPUT" );
+            fprintf( stdout, "\r%*s", 79, "INPUT" );
             PRNORMAL( "" );
-            printf( "\n ==================================="
-               "===========================================" );
+            fprintf( stdout,
+	       "\n ======================================="
+                  "=======================================" );
             return -ONE; 
          };
 /*............................................................................*/
-         rread_matter( ptr, 'f' );       /*  read materials from file      */
+         rread_matter( ptr, 'f' );       /*  read materials from file         */
          rvise_matter( );               /*  revise/reconfigure ...            */
          store_matter( tmpfle, 't' );  /*   restore on tmp file               */
 /*...................................*/
-         item = items2;
-         ( csp->clscr ) = 1; /* N !=0 : clear screen; scroll that nbr of lines*/
-         goto mat_menu;
-         break;
+         csp->clscr = 1; /* if N != 0: clear screen; scroll N lines */
 
-        case 3:  /* edit and/or modify the actual configuration */
+         csp->dfopt = 7;
+         goto mat_menu;
+        break;
+
+/*............................................................................*/
+        case 3:  /* edit the current configuration */
 
 # if defined ( HLS_EDITOR )
          strcpy( ptr, HLS_EDITOR );
          strcat( ptr, " " );
          strncat( ptr, tmpfle, STS_SIZE );
-/*............................................................................*/
-         system ( ptr );                 /* edit [evtlly modify] tmp mat file */
+
+/*.......................................*/
+         system( ptr );                  /* edit materials file               */
          rread_matter( tmpfle, 't' );   /*  re-read materials from tmp file   */
          rvise_matter( );              /*   revise/reconfigure ...            */
          store_matter( tmpfle, 't' ); /*    restore on tmp file               */
 /*..................................*/
 # else
-         printf( "\n No editor is defined for this option !" );
+         fprintf( stdout, 
+	    "\n No editor defined in file \"CONFIG.H\" !" );
 # endif
-         item = items2;
-         ( csp->clscr ) = 1; /* N !=0 : clear screen; scroll that nbr of lines*/
-         goto mat_menu;
-         break;
+/*............................................................................*/
+         csp->clscr = 1; /* if N != 0: clear screen; scroll N lines */
 
-        case 4:  /* reload the default configuration */
+         csp->dfopt = 7;
+         goto mat_menu;
+        break;
 
 /*............................................................................*/
+        case 4:  /* reload the default configuration */
+
+/*......................................*/
          deflt_matter( );               /* enter default materials            */
          rvise_matter( );              /*  revise/reconfigure materials       */
          store_matter( tmpfle, 't' ); /*   restore on tmp file                */
 /*..................................*/
-         item = items2;
-         ( csp->clscr ) = 1; /* N !=0 : clear screen; scroll that nbr of lines*/
-         goto mat_menu;
-         break;
+         csp->clscr = 1; /* if N != 0: clear screen; scroll N lines */
 
+         csp->dfopt = 7;
+         goto mat_menu;
+        break;
+
+/*............................................................................*/
         case 5:
 
+/*............................................................................*/
 # if defined ( HLS_PRINTER )
          strcpy( ptr, HLS_PRINTER );
          strcat( ptr, " " );
          strcat( ptr, tmpfle );
-/*............................................................................*/
-         system ( ptr );               /* print file */
-/*..................................*/
-# else
-         printf( "\n No printer is defined for this option !" );
-# endif
-         item = items2;
-         ( csp->clscr ) = 1; /* N !=0 : clear screen; scroll that nbr of lines*/
-         goto mat_menu;
-         break;
 
+/*.....................................*/
+         system( ptr );               /* print file */
+/*...................................*/
+# else
+         fprintf( stdout,
+	    "\n No printer defined in file \"CONFIG.H\"" );
+# endif
+/*............................................................................*/
+         csp->clscr = 1; /* if N != 0: clear screen; scroll N lines */
+
+         csp->dfopt = 7;
+         goto mat_menu;
+        break;
+
+/*............................................................................*/
+        case 6: /* start computation */
+         return ONE;
+	break;
+
+/*............................................................................*/
         case 0:  /* end of program / escape */
+	case 'y':
+	case 'Y':
 
          remove( tmpfle );
 
          PRBLDCLR( "" );
-         printf( "\r%*s", 79, "INPUT" );
          PRNORMAL( "" );
+	 
          return -ONE;
          break;
       }; /* end switch(*) */
 /*............................................................................*/
-
       remove( tmpfle );
 
       strcpy( fleptr, matlog  );
-      strcat( fleptr, lotos(( state->job ), null ));
+      strcat( fleptr, lotos( state->job, null ));
 
       printf( "\n opened: Materials logfile %s ", fleptr );
+
 /*............................................................................*/
       store_matter( fleptr, 'm' );   /* save final materials on log file      */
-/*................................*/
+/*.................................*/
 
       printf( CLEAR_LINE );
 
@@ -818,6 +890,7 @@ short input ( char *option )
    if ( *option == 'p' )
    {
       parameters = ( short ) par.s[null];
+
 /*............................................................................*/
       ind = rvise_params( );      /*                                          */
 /*..............................*/
@@ -852,6 +925,8 @@ short input ( char *option )
 /*............................................................................*/
 # endif
 /*............................................................................*/
+
+/*............................................................................*/
       store_params( tmpfle, 't' );          /* store prmtrs on temporary file */
 /*.......................................,*/
 
@@ -859,61 +934,70 @@ short input ( char *option )
       strcpy( ptr, HLS_PAGER );
       strcat( ptr, " " );
       strcat( ptr, tmpfle );
-/*............................................................................*/
-      system ( ptr );                 /* edit [evtlly modify] parameter file  */
+
+/*....................................*/
+      system( ptr );                  /* edit parameter file                  */
       rread_params( tmpfle, 't' );   /*  re-read parameters from tmp file     */
       rvise_params( );              /*   revise/reconfigure ...               */
       store_params( tmpfle, 't' ); /*    restore on temporary file            */
 /*...............................*/
 # endif
 /*............................................................................*/
+      csp = txcnsl( null ); 
 
-      csp = txcnsl( null ); /* initialize menu */
-      item = items2;
-      ( csp->clscr ) = 1; /* if !=0: clear screen; scroll that number of lines*/
+      csp->clscr = 1; /* if N != 0: clear screen; scroll N lines */
+      csp->dfopt = 3;
 
      par_menu:
 
-      ( csp->items ) = items2;
-      ( csp->dfopt ) = item;
-      ( csp->dflnf ) = item; /* set line feed before option menu line */
+      csp->items = 7;
+      csp->dflnf = csp->dfopt; /* set line feed before option menu line */
 
       nseconds = time( timer );
       strcpy( timeptr, ctime( &nseconds ));
-      strcpy(( csp->title ), "Program HELIOS: " );
-      strncat(( csp->title ), timeptr, 24 );
+      strcpy( csp->title, "Program HELIOS: " );
+      strncat( csp->title, timeptr, 24 );
 
-      strcpy(( csp->envmt ), "INPUT" );
-      strcpy(( csp->cmmnt ), "Geometric and physical" );
-      strcpy(( csp->tasks ), "PARAMETERS" );
-      strcpy(( csp->mline[1] ), "* Display the presently charged parameters" );
-      strcpy(( csp->mline[2] ), "* Enter new parameters from file" );
-      strcpy(( csp->mline[3] ), "* Edit [ and evtly. modify ] the parameters" );
-      strcpy(( csp->mline[4] ), "* Reload the default parameters" );
-      strcpy(( csp->mline[5] ), "* Print the parameters" );
-      strcpy(( csp->mline[6] ), "* Continue" );
-      strcpy(( csp->escpe ), "End of program / escape" );
+      strcpy( csp->envmt, "INPUT" );
+      strcpy( csp->cmmnt, "Geometric and physical" );
+      strcpy( csp->tasks, "PARAMETERS" );
+
+      strcpy( csp->mline[1], "* Display the presently charged parameters" );
+      strcpy( csp->mline[2], "* Enter new parameters from file" );
+      strcpy( csp->mline[3], "* Edit [ and evtly. modify ] the parameters" );
+      strcpy( csp->mline[4], "* Reload the default parameters" );
+      strcpy( csp->mline[5], "* Print the parameters" );
+      strcpy( csp->mline[6], "* start computation" );
+      strcpy( csp->mline[7], "* Continue" );
+
+      strcpy( csp->escpe, "End of program / escape" );
+
+      if ( state->job == null )
+         strcpy( csp->cnfrm,\
+            "Nothing done! Do you really want to quit ?" );
+      else
+         strcpy( csp->cnfrm, 
+            "Do you really want to quit ?" );
+
 /*............................................................................*/
-      csp = txcnsl( csp );   /* call the menu building function               */
+      csp = txcnsl( csp );   /* menu building function */
 /*.........................*/
 
-      item = ( csp->option );
-/*............................................................................*/
-      
-      switch ( item )
+      switch( csp->option )
       {
-        default: /* continue program [ e.g item = items2 ] */
-         break;
+/*............................................................................*/
+        case 1:  /* display the configuration */
 
-        case 1:  /* display the actual configuration [ on screen ] */
-
+/*............................................................................*/
 # if defined ( HLS_PAGER )
          strcpy( ptr, HLS_PAGER );
          strcat( ptr, " " );
          strcat( ptr, tmpfle );
-/*............................................................................*/
-         system ( ptr );               /* edit [evtlly modify] divisions file */
+
+/*.....................................*/
+         system( ptr );                /* edit divisions file */
 /*...................................*/
+
 # else
          parameters = ( short ) par.s[null];
 
@@ -925,12 +1009,15 @@ short input ( char *option )
          for ( ii=ONE; ii<=parameters; ii++ )
             printf( "\n %-s:  % .12e ", par.stx[ii], par.s[ii] );
 # endif
-         item = items2;
-         ( csp->clscr ) = 0; /* N !=0 : clear screen; scroll that nbr of lines*/
+/*............................................................................*/
+         csp->clscr = 0; /* if N != 0: clear screen; scroll N lines */
+
+         csp->dfopt = 3;
          goto par_menu;
          break;
 
-        case 2: /* enter another configuration from file */
+/*............................................................................*/
+        case 2: /* load parameters from file */
 
          printf( "\n Please enter filename [ Continue/"
             "Escape: null ] >----> " );
@@ -941,10 +1028,11 @@ short input ( char *option )
             remove( tmpfle );
 
             PRBLDCLR( "" );
-            printf( "\r%*s", 79, "INPUT" );
+            fprintf( stdout, "\r%*s", 79, "INPUT" );
             PRNORMAL( "" );
-            printf( "\n ==================================="
-               "===========================================" );
+            fprintf( stdout,
+	       "\n ======================================="
+                  "=======================================" );
             return -ONE; 
          };
 /*............................................................................*/
@@ -952,19 +1040,23 @@ short input ( char *option )
          rvise_params( );               /*  revise/reconfigure ...            */
          store_params( tmpfle, 't' );  /*   restore parameters on tmp file    */
 /*...................................*/
-         item = items2;
-         ( csp->clscr ) = 1; /* N !=0 : clear screen; scroll that nbr of lines*/
+         csp->clscr = 1; /* if N != 0: clear screen; scroll N lines */
+
+         csp->dfopt = 6;
          goto par_menu;
          break;
 
+/*............................................................................*/
         case 3:  /* edit and/or modify the actual configuration */
 
+/*............................................................................*/
 # if defined ( HLS_EDITOR )
          strcpy( ptr, HLS_EDITOR );
          strcat( ptr, " " );
          strncat( ptr, tmpfle, STS_SIZE );
-/*............................................................................*/
-         system ( ptr );                 /* edit [evtlly modify] tmp par file */
+
+/*.......................................*/
+         system( ptr );                  /* edit parameters file               */
          rread_params( tmpfle, 't' );   /*  re-read parameters from tmp file  */
          rvise_params( );              /*   revise/reconfigure ...            */
          store_params( tmpfle, 't' ); /*    restore on temporary file         */
@@ -972,55 +1064,74 @@ short input ( char *option )
 # else
          printf( "\n No editor is defined for this option !" );
 # endif
-         item = items2;
-         ( csp->clscr ) = 1; /* N !=0 : clear screen; scroll that nbr of lines*/
+/*............................................................................*/
+         csp->clscr = 1; /* if N != 0: clear screen; scroll N lines */
+	 
+         csp->dfopt = 6;
          goto par_menu;
          break;
 
+/*............................................................................*/
         case 4:  /* reload the default configuration */
 
-/*............................................................................*/
+/*......................................*/
          deflt_params( );               /* enter default parameters           */
          rvise_params( );              /*  revise/reconfigure parameters      */
          store_params( tmpfle, 't' ); /*   store on temporary file            */
 /*..................................*/
-         item = items2;
-         ( csp->clscr ) = 1; /* N !=0 : clear screen; scroll that nbr of lines*/
-         goto par_menu;
-         break;
+         csp->clscr = 1; /* if N != 0: clear screen; scroll N lines */
 
+         csp->dfopt = 6;
+         goto par_menu;
+        break;
+
+/*............................................................................*/
         case 5:
 
+/*............................................................................*/
 # if defined ( HLS_PRINTER )
          strcpy( ptr, HLS_PRINTER );
          strcat( ptr, " " );
          strcat( ptr, tmpfle );
-/*............................................................................*/
-         system ( ptr );               /* print file */
+
+/*....................................*/
+         system( ptr );               /* print file */
 /*..................................*/
 # else
-         printf( "\n No printer is defined for this option !" );
+         fprintf( stdout,
+	    "\n No printer defined in file \"CONFIG.H\" !" );
 # endif
-         item = items2;
-         ( csp->clscr ) = 1; /* N !=0 : clear screen; scroll that nbr of lines*/
+/*............................................................................*/
+         csp->clscr = 1; /* if N != 0: clear screen; scroll N lines */
+
+         csp->dfopt = 6;
          goto par_menu;
-         break;
+        break;
 
-        case 0:  /* end of program / escape */
+/*............................................................................*/
+        case 6:
+         return ONE;
+	break;
 
-         remove( tmpfle );
+/*............................................................................*/
+        default: /* end of continue program */
+        case 0: 
+        case 'y': 
+        case 'Y': 
+
+         remove( tmpfle ); 
 
          PRBLDCLR( "" );
-         printf( "\r%*s", 79, "INPUT" );
          PRNORMAL( "" );
+
          return -ONE;
-         break;
+        break;
       }; /* end switch(*) */
 /*............................................................................*/
       remove( tmpfle );
 
       strcpy( fleptr, parlog  );
-      strcat( fleptr, lotos(( state->job ), null ));
+      strcat( fleptr, lotos( state->job, null ));
 
       printf( "\n opened: Parameters logfile %s ", fleptr );
 /*............................................................................*/

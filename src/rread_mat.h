@@ -53,9 +53,9 @@ short rread_matter( char *filename, char mode )
       {
          if (( state->uif ) == 't' )
 	 {
-            printf( "\n material parameters file %s not found "
-               "in present directory:\n ", fleptr  );
-            printf( "\n please re-enter filename [ Escape: "
+            printf( "\n Material parameters file %s not found "
+               "in present directory.", fleptr  );
+            printf( "\n Please re-enter filename [ Escape: "
                "enter null ] >----> " );
             scanf( "%s", fleptr );
 

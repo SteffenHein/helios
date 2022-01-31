@@ -2,14 +2,11 @@
 # define DO_TXCNSL "txcnsl(*)"
 /*******************************************************************************
 *                                                                              *
-*   Function txcnsl(*); HELIOS, release v1.0r1                                 *
-*   [ Heat and Electric Losses In Ordinary wave guiding Structures ]           *
-*                                                                              *
 *   Provides standardized command line and parameter input format on a text    *
 *   console.                                                                   *
 *                                                                              *
-*   (C) SHEIN; Munich, December 2021                       Steffen Hein        *
-*   [ Update: December 17, 2021 ]                       <contact@sfenx.de>     *
+*   (C) SHEIN; Munich, April 2020                             Steffen Hein     *
+*   [ Update: January 27, 2022 ]                           <contact@sfenx.de>  *
 *                                                                              *
 *******************************************************************************/
 # define _POSIX_SOURCE 0 /* set to 1: if POSIX.1 standard headers will be used*/
@@ -36,8 +33,6 @@
    # define PI     3.14.......
 ] */
 /*----------------------------------------------------------------------------*/
-# include "../math/consts.h"
-/*----------------------------------------------------------------------------*/
 /* the general configuration file: */  
 # include "../CONFIG.H"
 
@@ -49,12 +44,15 @@
    # include <ncurses.h>
 # endif 
 /*----------------------------------------------------------------------------*/
-# include "../math/txctyp.h"
+# include "../math/txctyp.h" /* structure of type TXCNSL, cf. below */
 /*----------------------------------------------------------------------------*/
 # define CNS_DEFLT  "active"   
                      
 # ifndef CNS_ITEMS
    # define CNS_ITEMS 10 /* maximum number of menu items                     */
+# endif
+# ifndef CNS_POSIT
+   # define CNS_POSIT 67 /* position of menu labels [indices] in line         */
 # endif
 # ifndef CNS_LNLEN
    # define CNS_LNLEN 79 /* number of characters in menu line                */
@@ -62,15 +60,18 @@
 # ifndef CNS_LNINT
    # define CNS_LNINT  2 /* first non-space character in line                */
 # endif
-# ifndef CNS_POSIT
-   # define CNS_POSIT 67 /* position of menu labels [indices] in line         */
+# ifndef HUGE_VALF
+   # define HUGE_VALF (( double ) 1.0e+299 )
+# endif
+# ifndef LONG_MIN
+   # define LONG_MIN (( long ) null )
 # endif
 /*----------------------------------------------------------------------------*/
-/* structure typedefs: */
+# ifndef TP_TXCNSL
 
 /* Transfer structure of function 'txcnsl(*)' [ which provides standardized   */
 /* command line / menu options on a text console ] */
-/*
+
 typedef struct
 {
    signed char 
@@ -108,15 +109,10 @@ typedef struct
       dfdbl, indbl;
    
 } TXCNSL;
-*/
+# endif
+/*----------------------------------------------------------------------------*/
 static TXCNSL
    cns = {null};
-/*
-static FILE 
-  *keyboard = stdin,
-  *display = stdout;
-  [ This didn't work with Redhat's version of egcc C compiler ]
-*/
 /*----------------------------------------------------------------------------*/
 # if USE_NCURSES == 1
 /* 'my_terminal' configuration: */
@@ -323,7 +319,8 @@ TXCNSL *txcnsl( TXCNSL *csp )
       ii = null,
       jj = null,
       kk = null,
-      ll = null;
+      ll = null,
+      mm = null;
 
    static char
       ptr[STS_SIZE] = {null},
@@ -743,7 +740,26 @@ TXCNSL *txcnsl( TXCNSL *csp )
 
          FGETC(CNS_LNLEN);
 
-         if( null != strchr( ptr, 'n' ))
+	 if ( ii == ONE )
+	 {
+            mm = null;
+	    while ( mm < cpt->items )
+	    {
+/* [ ASCII ( char ) 49 = '1', 50 = '2', 51 = '3',..., 57 = '9' ] */
+
+               ++mm;
+	       if ( ptr[null] == ( char )( mm + 48 ))
+	       {
+                   cpt->option = mm;
+		   return cpt;
+               };
+            };
+         };
+
+/* [ ASCII ( char ) 78 = 'N', 110 = 'n' ] */
+
+         if(( ptr[null] == ( char ) 78 )
+          ||( ptr[null] == ( char ) 110 ))
          {
             CNS_CLSTR( null, STS_SIZE ); /* clear string ptr[] */
             goto start;

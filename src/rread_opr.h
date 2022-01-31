@@ -51,9 +51,9 @@ short rread_operts( char *filename, char mode )
       {
          if (( state->uif ) == 't' )
          {
-            printf( "\n operation parameters file %s not found "
-               "in present directory:\n", fleptr );
-            printf( "\n please re-enter filename [ Escape: "
+            printf( "\n Operation parameters file %s not found "
+               "in present directory.", fleptr );
+            printf( "\n Please re-enter filename [ Escape: "
                "enter null ] >----> " );
 
             scanf( "%s", fleptr );
@@ -63,8 +63,8 @@ short rread_operts( char *filename, char mode )
          }
 	 else
          {
-            fprintf( stderr, "\noperation parameters file %s not found "
-	       "in working directory\n", fleptr );
+            fprintf( stderr, "\nOperation parameters file %s not found "
+	       "in working directory.\n", fleptr );
             exit( EXIT_FAILURE );
          };
 
@@ -114,9 +114,9 @@ short rread_operts( char *filename, char mode )
             {
                if (( state->uif ) == 't' )
 	       {
-                  printf( "\n operation modes not found "
-                     "in file '%s':\n", fleptr );
-                  printf( "\n please re-enter filename [ Escape: "
+                  printf( "\n Operation modes not found "
+                     "in file '%s'.\n", fleptr );
+                  printf( "\n Please re-enter filename [ Escape: "
                      "enter null ] >----> " );
 
                   scanf( "%s", fleptr );
@@ -126,8 +126,8 @@ short rread_operts( char *filename, char mode )
                }
 	       else
 	       {
-                  fprintf( stderr, "\noperation modes not found "
-	             "in file '%s'\n", fleptr );
+                  fprintf( stderr, "\n Operation modes not found "
+	             "in file '%s'.\n", fleptr );
                   exit( EXIT_FAILURE );
                };
             };
