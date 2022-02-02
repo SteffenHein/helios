@@ -1,5 +1,5 @@
 [file: src.md5]
-created: Mon Jan 31 23:25:19 2022
+created: Tue Feb  1 23:40:24 2022
 -------------------------------------------------------------------------------
 MD5( .directory ) = d41d8cd98f00b204e9800998ecf8427e
 MD5( DISPLAY.M ) = b474dd691a0d3c0c0b5177c881da1c20
@@ -26,14 +26,15 @@ MD5( hcndct.c ) = 91936981c5cf223256eea1a817d175aa
 MD5( hcndct.h ) = fcb64eb068a9475c2cc91d54a83b8e12
 MD5( helios.c ) = fa39683f515a35b6b799cc29e22ee8a7
 MD5( hlsdrv.c ) = 00b7a09930ffdadd134f7544a85d7806
-MD5( hlsdrv.h ) = 6c170e28fc1e25d946be5f9a8a4945ac
+MD5( hlsdrv.h ) = 51cb407213144267044e8c4b23bc1d66
+MD5( hlsdrv.h.prv ) = 6c170e28fc1e25d946be5f9a8a4945ac
 MD5( hlsutls.c ) = df5513ef8e977aebf1344e7efcf3a600
 MD5( hlswrk.c ) = 07390496f1b96c4e53fcfb368debf0d9
 MD5( hlswrk.h ) = dca99e57d2499863c0c76783968b15c2
 MD5( init_mat.h ) = e3bb6a64b865eb27427a99b8e106fab9
 MD5( init_opr.h ) = 3c5fc20c99e074f04646388eaaa04c93
 MD5( init_par.h ) = 20d6a63460ba93dbb2e81c299814973c
-MD5( inputs.h ) = b59863fe97e132f185b55e3a4539c689
+MD5( inputs.h ) = c13b9758baa0000335b7011a2ea25edb
 MD5( intlze.c ) = 3576c8edf37d0178b944f41c817dd0c9
 MD5( intlze.h ) = 62b0f42f02d9f46971055e75116ce2c2
 MD5( kelvin.c ) = 04f2f295f849f4f43f9bace2fb262899
@@ -43,9 +44,9 @@ MD5( losses.h ) = c5627d63799c804a1f3c68426dc11861
 MD5( metals.c ) = 3b2e4c56c9c68de73ee852eb61f8c3de
 MD5( metals.h ) = 13ee2b4c872d3906a6bf41f089b1343c
 MD5( metltp.h ) = 0728cb44a0c5de7c28ac8f3118654fa7
-MD5( rread_mat.h ) = ec5bc387d6ce642d2439b347d6c1bdf8
-MD5( rread_opr.h ) = ce79ecdfa1e287f332b4e9854c9ce55e
-MD5( rread_par.h ) = 7abe42af67d094cff9714e682c3037b0
+MD5( rread_mat.h ) = f7cf858d38947e5d7c50a38116b1c04a
+MD5( rread_opr.h ) = f389ebc0a5c9bb88f457403ad7d1e6d9
+MD5( rread_par.h ) = fdf8944d0c382c1dfd31700f01335eba
 MD5( rvise_mat.h ) = 87ebd5085d18ddc881cdb09f77d4901a
 MD5( rvise_opr.h ) = d953bdd910b18741519eb4b8f0f40172
 MD5( rvise_par.h ) = ee5de0567a333f87d112f251da94228d
@@ -56,7 +57,10 @@ MD5( store_mat.h ) = 38635be9847aee3bcc1ed7a88e16aaa2
 MD5( store_opr.h ) = b1d721602525c4eb67c90398b73c11b5
 MD5( store_par.h ) = 702bebe0563f7e9b094bae38f0c976e1
 MD5( store_val.h ) = b7e4575b377861856828b58aa67fa084
-MD5( types.h ) = dabba14d48139bb06fb893513dd6488f
+MD5( types.h ) = c5d3bbf17a4fafce35aba50d47bcf2df
 MD5( values.c ) = 0be6db0df8b9fbc661a791790b1a1601
 MD5( values.h ) = 255104d61f74468f9057316679d92da7
 MD5( vtempr.h ) = 2833d6c6467ffcdbfa31bfcedc99b700
+MD5( vvv ) = 2c6a8b3645e5aff9010d2adbac857229
+MD5( yyy ) = e04099c564ecbdf780dc7034e5c32c97
+MD5( zzz ) = 3aa4df9f6078de1feb0a827160ca40bd

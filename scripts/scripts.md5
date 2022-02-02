@@ -1,5 +1,5 @@
 [file: scripts.md5]
-created: Mon Jan 31 23:25:19 2022
+created: Tue Feb  1 23:40:24 2022
 -------------------------------------------------------------------------------
 MD5( .directory ) = d41d8cd98f00b204e9800998ecf8427e
 MD5( archvs.pl ) = e4ddcf386a07a0bf011f8d1e714f4ad9
@@ -12,7 +12,7 @@ MD5( distinfo ) = 2105fbd4de3d6049be4d0dcbbfc5baa0
 MD5( dplct.csh ) = e6e905ad23bca43accb424d560ff762e
 MD5( helios.csh ) = 32199de2f2a7788dcc8971b5238aac78
 MD5( log2init.csh ) = d9a28a1b1e7fc8cc20a3d0a8d7a2079e
-MD5( md5sum.sh ) = 051d70d60263e9aeeb9c251fc7f7d9cb
+MD5( md5sum.sh ) = d09ecaa5b36f10c08e878c36d4a772c9
 MD5( new-rls ) = 4c446763df8aeb5abec64af7816e7422
 MD5( new-spcf.sh ) = bfb15e46dd04b895bf8dd806b6d313a1
 MD5( subst.pl ) = a687c874970911052f736674bfa66450

@@ -703,6 +703,7 @@ typedef struct
 typedef struct
 {
    signed char
+      cpmrk,
       onerr,
       rtn;
 

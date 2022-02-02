@@ -1041,8 +1041,8 @@ short input ( char *option )
          store_params( tmpfle, 't' );  /*   restore parameters on tmp file    */
 /*...................................*/
          csp->clscr = 1; /* if N != 0: clear screen; scroll N lines */
-
          csp->dfopt = 6;
+
          goto par_menu;
          break;
 

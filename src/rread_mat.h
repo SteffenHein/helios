@@ -7,7 +7,7 @@
 *   Material parameter file [ opr.log<N> ] reading function                    *
 *                                                                              *
 *   (C) SHEIN; Munich, December 2021                      Steffen Hein         *
-*   [ Update: December 28, 2021 ]                       <contact@sfenx.de>     *
+*   [ Update: February 01, 2022 ]                       <contact@sfenx.de>     *
 *                                                                              *
 *******************************************************************************/
 
@@ -32,7 +32,8 @@ short rread_matter( char *filename, char mode )
 
    static char
       ptr[STS_SIZE] = {null},
-      fleptr[STS_SIZE] = {null};
+      fleptr[STS_SIZE] = {null},
+      txtstr[STS_SIZE] = {null};
 
    static const char
      *scformat = "%80s";
@@ -51,20 +52,40 @@ short rread_matter( char *filename, char mode )
 
       while ( materls == null )
       {
-         if (( state->uif ) == 't' )
+         if ( state->uif == 't' )
 	 {
-            printf( "\n Material parameters file %s not found "
-               "in present directory.", fleptr  );
-            printf( "\n Please re-enter filename [ Escape: "
-               "enter null ] >----> " );
-            scanf( "%s", fleptr );
+            if ( state->cpmrk != TWO )
+	    {
+               fprintf( stdout,
+	          "\n Material parameter file \"%s\" not found "
+                     "in present directory:\n", fleptr );
 
-            if ( *fleptr == '0' )
-               return null;
+               fprintf( stdout,
+	          "\n Please re-enter filename [ Escape: "
+                     "enter null ] >----> " );
+               scanf( "%s", fleptr );
+
+               if ( *fleptr == '0' )
+                  return null;
+            }
+	    else if ( state->cpmrk == TWO )
+            { 
+               fprintf( stdout, CLEAR_LINE );
+
+               strcpy( txtstr, 
+	          "\n Parameter file \"" );
+               strcat( txtstr, fleptr );
+               strcat( txtstr, "\" not found in present directory !" );
+
+               PRBLDCLR( txtstr );
+               PRNORMAL( "" );
+
+	       return null;
+            };
          }
 	 else
 	 {
-            fprintf( stderr, "\nmaterial parameters file %s not found "
+            fprintf( stderr, "\nMaterial parameters file %s not found "
 	       "in working directory\n", fleptr );
             exit( EXIT_FAILURE );
          };
@@ -129,38 +150,59 @@ short rread_matter( char *filename, char mode )
             }; /* end if mode != 't' */
 
             fclose( materls );
-            return null;
+            return ONE;
+	    
             break;
          }
          else
          {
-            ii++;
+            ++ii;
             if ( ii == IPT_MAXLBL )
             {
-               if (( state->uif ) == 't' )
+               if ( state->uif == 't' )
 	       {
-                  printf( "\n material parameters not found "
-                     "in file %s:\n", fleptr );
-                  printf( "\n please re-enter filename [ Escape: "
-                     "enter null ] >----> " );
-                  scanf( "%s", fleptr );
+                  if ( state->cpmrk < TWO )
+	          {
+                     fprintf( stdout,
+	                "\n Materials not found "
+                           "in file \"%s\":\n", fleptr );
 
-                  if ( *fleptr == '0' )
+                     fprintf( stdout,
+	                "\n Please re-enter filename [ Escape: "
+                           "enter null ] >----> " );
+                     scanf( "%s", fleptr );
+
+                     if ( *fleptr == '0' )
+                        return null;
+                  }
+	          else if ( state->cpmrk == TWO )
+                  { 
+                     fprintf( stdout, CLEAR_LINE );
+
+                     strcpy( txtstr, 
+	                "\n Material parameters not found in file \"" );
+                     strcat( txtstr, fleptr );
+                     strcat( txtstr, "\" !" );
+
+                     PRBLDCLR( txtstr );
+                     PRNORMAL( "" );
+
                      return null;
+                  };
                }
 	       else
 	       {
-                  fprintf( stderr, "\nmaterial parameters not found "
-	             "in file %s !\n", fleptr );
+                  fprintf( stderr, "\nMaterial parameters not found "
+	             "in file \"%s\" !\n", fleptr );
                   exit( EXIT_FAILURE );
                };
-            }
+            };
          }; /* end if( ptr != "MATERIALS" ) */
       }; /* end while( ii < IPT_MAXLBL ) */
    }; /* end while( *flelbl == '0' ) */
 
    fclose( materls );
-   return null;
+   return ONE;
 }
 /*============================================================================*/
 /********************* end of function rread_matter(*) ************************/

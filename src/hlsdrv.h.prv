@@ -9,7 +9,7 @@
 *   routines of hlswrk(*).                                                     *
 *                                                                              *
 *   (C) SHEIN; Munich, December 2021                      Steffen Hein         *
-*   [ Update: February 01, 2022 ]                       <contact@sfenx.de>     *
+*   [ Update: January 31, 2022 ]                        <contact@sfenx.de>     *
 *                                                                              *
 *******************************************************************************/
 
@@ -37,6 +37,7 @@ short heliosdrv( int argn, char **args )
      *csp = &cns; /* cf. txcnsl(*) [ text console ] */
 
    static char 
+      cpmrk = null,
       fleptr[STS_SIZE] = {null},
       lnestr[STS_SIZE] = {null},
       ptr[STS_SIZE] = {null},           
@@ -243,7 +244,7 @@ short heliosdrv( int argn, char **args )
       state->uif = 't'; /* user interface: 't'ext console */
       csp = txcnsl( null ); /* initialize the text console */
 
-      state->cpmrk = null;
+      cpmrk = null;
       csp->option = 3; do
       {
          strcpy( csp->cmmnt, "Welcome to HELIOS !" );
@@ -258,7 +259,7 @@ short heliosdrv( int argn, char **args )
 
          strcpy( lnestr, "* parameter input file \"" );
          strcat( lnestr, IPT_PARINIT );
-         strcat( lnestr, lotos( state->job, null ));
+         strcat( lnestr, lotos( job, null ));
          strcat( lnestr, "\"");
 
          strcpy( csp->mline[1], lnestr ); 
@@ -304,7 +305,7 @@ short heliosdrv( int argn, char **args )
             fprintf( stdout, "\n %s", timeptr );
             PRNORMAL( "" );
 
-            state->cpmrk = TWO;
+            cpmrk = TWO;
 	   break;
 
 /*............................................................................*/
@@ -328,7 +329,7 @@ short heliosdrv( int argn, char **args )
       } while( csp->option == 3 );
    };
 
-   if (( state->cpmrk < TWO )
+   if (( cpmrk < TWO )
      &&( state->uif == 't' )) /* text console input */
    {
       strcpy( csp->cmmnt, "Welcome back to HELIOS !" );
@@ -339,11 +340,12 @@ short heliosdrv( int argn, char **args )
 
      second_console:
 
-      state->cpmrk = null;
+      cpmrk = null;
       csp->items = 6;
       csp->dflnf = csp->dfopt; /* set line feed before default option */
 
       nseconds = time( timer );
+
       strcpy( timeptr, ctime( &nseconds ));
       strcpy( csp->title, "Program HELIOS: " );
       strncat( csp->title, timeptr, 24 );
@@ -392,7 +394,7 @@ short heliosdrv( int argn, char **args )
 	   return null;
          else if ( ii == ONE ) /*start computation */
 	 {
-           state->cpmrk = ONE;
+           cpmrk = ONE;
 	   break;
          };
 /*............................................................................*/
@@ -408,7 +410,7 @@ short heliosdrv( int argn, char **args )
 	   return null;
          else if ( ii == ONE ) /*start computation */
 	 {
-           state->cpmrk = ONE;
+           cpmrk = ONE;
 	   break;
          };
 /*...........................................................................*/
@@ -424,7 +426,7 @@ short heliosdrv( int argn, char **args )
 	   return null;
          else if ( ii == ONE ) /*start computation */
 	 {
-           state->cpmrk = ONE;
+           cpmrk = ONE;
 	   break;
          };
 /*...........................................................................*/
@@ -439,7 +441,7 @@ short heliosdrv( int argn, char **args )
 	   return null;
          else if ( ii == ONE ) /*start computation */
 	 {
-           state->cpmrk = ONE;
+           cpmrk = ONE;
 	   break;
          };
 
@@ -448,7 +450,7 @@ short heliosdrv( int argn, char **args )
 	   return null;
          else if ( ii == ONE ) /*start computation */
 	 {
-           state->cpmrk = ONE;
+           cpmrk = ONE;
 	   break;
          };
 
@@ -457,116 +459,97 @@ short heliosdrv( int argn, char **args )
 	   return null;
          else if ( ii == ONE ) /*start computation */
 	 {
-           state->cpmrk = ONE;
+           cpmrk = ONE;
 	   break;
          };
+/*...........................................................................*/
          ( csp->dfopt ) = 5; /* the next default menu option */
          ( csp->clscr ) = 1; /* N != 0: clear screen; scroll N lines */
-	 
-        break;
+         break;
 
-/*...........................................................................*/
         case 5:
+         cpmrk = ONE;
+         break;
 
-         PRBLDCLR( "" );
-         PRNORMAL( "\n");
-
-         state->cpmrk = ONE;
-        break;
-/*...........................................................................*/
         case 6:
-		
          PRBLDCLR( "" );
 	 fprintf( stdout, "\n Call: +49+8061.936362 or" );
          fprintf( stdout, "\n email: contact@sfenx.de" );
          fprintf( stdout, "\n [ Don't hesitate to ask your questions.]" );
          PRNORMAL( "\n");
-	 
-         csp->dfopt = 4; /* the initial default menu option */
-	 
+         ( csp->dfopt ) = 4; /* the initial default menu option */
          break;
       };
 
       if (( null < csp->option )
-        &&( state->cpmrk == null ))
+        &&( cpmrk == null ))
       {
          strcpy( csp->cmmnt, "Welcome back to HELIOS !" );
          goto second_console;
       }
-      else if ( null < state->cpmrk )
+      else if ( null < cpmrk )
       {
          rvise_params( );
 /*............................................................................*/
 /* clear screen: */
-
          fprintf( stdout, CLEAR_LINE );
-         fprintf( stdout,
-	    "\n ======================================="
-               "=======================================" );
+         fprintf( stdout, "\n ======================================="
+                             "=======================================" );
          nseconds = time( timer );
          strcpy( timeptr, ctime( &nseconds ));
          fprintf( stdout, "\n ");
          PRBLDCLR( "HELIOS started:");
          fprintf( stdout, "\n %s", timeptr );
          PRNORMAL( "" );
-
-      }; /* end if state->cpmrk == ONE */
+	 /*
+            "\n ======================================="
+               "=======================================" ); */
+      }; /* end if cpmrk == ONE */
+      
+     goto contd;
    }; /* end if ( state->uif ) != 'f','g','b' */
 
-   if (( state->cpmrk == TWO )
+   if (( cpmrk == TWO )
      ||( state->uif != 't' )) /* parameter 'f'ile input */
    {                          /* [graphical mode, e.g.] */
 /*............................................................................*/
 /* enter computation modes: */
 
-      if (( null == fleptr[null] )
-        ||( state->cpmrk == TWO ))
+      if ( null == fleptr[null] )
       {
          strcpy( fleptr, IPT_PARINIT );
          strcat( fleptr, lotos( state->job, null ));
       };
 
       rvise_operts( ); /* revise/reconfigure ...*/
-      ii = rread_operts( fleptr, 'f' );
-
-      if (( state->cpmrk == TWO )
-        &&( ii == null ))
-         goto first_console; 
-
+      rread_operts( fleptr, 'f' );
       rvise_operts( ); /* revise/reconfigure ...*/
 
       strcpy( tmpfle, "opr.log" );
       strcat( tmpfle, lotos( state->job, null ));
+
       store_operts( tmpfle, 'o' ); /* restore revised file as log file */
 /*............................................................................*/
 /* enter material parameters: */
 
       rvise_matter( ); /* revise/reconfigure ...*/
-      ii = rread_matter( fleptr, 'f' );
-
-      if (( state->cpmrk == TWO )
-        &&( ii == null ))
-         goto first_console; 
-
+      rread_matter( fleptr, 'f' );
       rvise_matter( ); /* revise/reconfigure ...*/
 
       strcpy( tmpfle, "mat.log" );
       strcat( tmpfle, lotos( state->job, null ));
+
       store_matter( tmpfle, 'm' ); /* restore revised file as log file */
 /*............................................................................*/
 /* enter physical parameters: */
 
       rvise_params( );             /* revise/reconfigure */
-      
-      ii = rread_params( fleptr, 'f' );
-      if (( state->cpmrk == TWO )
-        &&( ii == null ))
-         goto first_console; 
-
-      rvise_params( );             /* revise/reconfigure */
+      rread_params( fleptr, 'f' ); /* enter physical parameters */
    };
 /*............................................................................*/
 /* open process log file: */
+
+  contd:
 
    logfle = fopen( logptr , "a+" );
    setvbuf( logfle, null, _IONBF, null );
@@ -604,14 +587,15 @@ short heliosdrv( int argn, char **args )
 /*............................*/
 /* ... it's terminated [ continue ? ] */
 
-   ++( state->job ); /* next job label */
    if ( state->uif == 't' ) /* text input */
    {
+      ++( state->job ); /* next job label */
+
       strcpy( csp->cmmnt, "Welcome back to HELIOS !" );
       csp->dfopt = 0; /* the next default menu option */
       csp->clscr = 0; /* N != 0: clear screen; scroll N lines */
 
-      if ( state->cpmrk == TWO )
+      if ( cpmrk == TWO )
          goto first_console;
       else
          goto second_console;
