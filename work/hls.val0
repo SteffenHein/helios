@@ -1,0 +1,137 @@
+HELIOS RESULTS FILE 'hls.val0'
+[program helios, job no 0]
+================================================================================
+Dimensions_and_materials
+
+Waveguide_length________[«WGL»]:  5.000000000e-01 m
+
+Diameter,_outer_conductor__[Al]:  2.300000000e-01 m
+Diameter,_inner_conductor__[Cu]:  9.988000000e-02 m
+Outer_diameter,_mantle_____[Al]:  2.400000000e-01 m
+Inner_diameter,_pipe_______[Al]:  9.700000000e-02 m
+
+Characteristic_line_impedance
+4.999697120e+01 Ohm
+
+Operating_conditions
+
+Frequency______________________:  5.000000000e+08 Hz
+CW_power________________[limit]:  2.000000000e+05 W
+Side_heat_outflow______[mantle]:  3.586990225e+01 W
+Heat_inflow,_opp_side__[mantle]:  0.000000000e+00 W  [ fixed ]
+Side_heat_outflow________[pipe]:  2.377007788e+01 W
+Heat_inflow,_opp_side____[pipe]:  0.000000000e+00 W  [ fixed ]
+
+Temperatures
+
+Environment___[free_convection]:  3.000000000e+01 °C  [ AIR ]
+Mantle_______[mean_temperature]:  3.674807595e+01 °C
+Outer_conductor_____[mean_temp]:  3.675048290e+01 °C
+Inner_conductor_____[mean_temp]:  6.706671874e+01 °C
+Maximum_mantle_temperature_____:  3.951672272e+01 °C
+Side_temperature,_mantle[«STM»]:  3.000000000e+01 °C  [ fixed ]
+dT/dL(mantle)_____________[L=0]:  4.048845568e+01 °C/m
+dT/dL(mantle)_*_WGL_+_STM_[L=0]:  5.699230379e+01 °C
+Maximum_pipe_temperature_______:  7.830116823e+01 °C
+Side_temperature,_pipe__[«STP»]:  3.000000000e+01 °C  [ fixed ]
+dT/dL(pipe)_______________[L=0]:  2.224003125e+02 °C/m
+dT/dL(pipe)_*_WGL_+_STP___[L=0]:  1.412001562e+02 °C
+
+Differential_losses_[dQ/dz_at_power_insertion_point]
+
+Outer_conductor____________[Al]:  5.271932196e+01 W/m
+Inner_conductor____________[Cu]:  8.010333613e+01 W/m
+Dielectric________________[AIR]:  0.000000000e+00 W/m
+Total__________________________:  1.328226581e+02 W/m
+
+Heat source density equivalent to side outflow
+
+Side_heat_flow_density_[mantle]:  7.173980450e+01 W/m
+Side_heat_flow_density___[pipe]:  4.754015575e+01 W/m
+
+Attenuation
+
+2.884207374e-03 dB/m
+6.641132905e-04 Neper/m
+
+Resistivities
+
+Outer_conductor____________[Al]:  4.594018171e-08 Ohm*m
+Inner_conductor____________[Cu]:  2.000118283e-08 Ohm*m
+
+================================================================================
+Loss_induced_heat_currents
+
+hcrr[00] =  8.010334579e+01 W/m
+hcrr[01] =  5.271932376e+01 W/m
+hcrr[02] =  0.000000000e+00 W/m
+hcrr[03] =  0.000000000e+00 W/m
+hcrr[04] =  0.000000000e+00 W/m
+
+Node_temperatures
+
+temp[00] =  6.706669693e+01 °C  [ =  3.402166969e+02 K ]
+temp[01] =  3.675047820e+01 °C  [ =  3.099004782e+02 K ]
+temp[02] =  3.674807125e+01 °C  [ =  3.098980712e+02 K ]
+temp[03] =  4.853334847e+01 °C  [ =  3.216833485e+02 K ]
+temp[04] =  3.337403562e+01 °C  [ =  3.065240356e+02 K ]
+
+Base_temperatures
+
+temp[05] = -2.731500000e+02 °C  [ =  0.000000000e+00 K ]
+temp[06] = -2.731500000e+02 °C  [ =  0.000000000e+00 K ]
+temp[07] =  3.000000000e+01 °C  [ =  3.031500000e+02 K ]
+temp[08] =  3.000000000e+01 °C  [ =  3.031500000e+02 K ]
+temp[09] =  3.000000000e+01 °C  [ =  3.031500000e+02 K ]
+
+================================================================================
+Heat_conductances_mhc[i][j]
+[W/(m*K)]
+
++0.00000e+00 +1.07412e+00 +0.00000e+00 +2.56511e+00 +0.00000e+00 +0.00000e+00 +0.00000e+00 +0.00000e+00 
++1.07412e+00 +0.00000e+00 +3.54318e+04 +0.00000e+00 +0.00000e+00 +0.00000e+00 +0.00000e+00 +0.00000e+00 
++0.00000e+00 +3.54318e+04 +2.00691e+00 +0.00000e+00 +2.12623e+01 +0.00000e+00 +0.00000e+00 +0.00000e+00 
++2.56511e+00 +0.00000e+00 +0.00000e+00 +2.56511e+00 +0.00000e+00 +0.00000e+00 +0.00000e+00 +0.00000e+00 
++0.00000e+00 +0.00000e+00 +2.12623e+01 +0.00000e+00 +2.12623e+01 +0.00000e+00 +0.00000e+00 +0.00000e+00 
++0.00000e+00 +0.00000e+00 +0.00000e+00 +0.00000e+00 +0.00000e+00 +4.46736e-02 +0.00000e+00 +0.00000e+00 
++0.00000e+00 +0.00000e+00 +0.00000e+00 +0.00000e+00 +0.00000e+00 +0.00000e+00 +1.56820e-01 +0.00000e+00 
++0.00000e+00 +0.00000e+00 +0.00000e+00 +0.00000e+00 +0.00000e+00 +0.00000e+00 +0.00000e+00 +2.36648e-01 
+
+Heat_resistances_mhr[i][j]
+[m*K/W]
+
+ infinite    +9.30996e-01  infinite    +3.89846e-01  infinite     infinite     infinite     infinite    
++9.30996e-01  infinite    +2.82232e-05  infinite     infinite     infinite     infinite     infinite    
+ infinite    +2.82232e-05 +4.98278e-01  infinite    +4.70316e-02  infinite     infinite     infinite    
++3.89846e-01  infinite     infinite    +3.89846e-01  infinite     infinite     infinite     infinite    
+ infinite     infinite    +4.70316e-02  infinite    +4.70316e-02  infinite     infinite     infinite    
+ infinite     infinite     infinite     infinite     infinite    +2.23846e+01  infinite     infinite    
+ infinite     infinite     infinite     infinite     infinite     infinite    +6.37672e+00  infinite    
+ infinite     infinite     infinite     infinite     infinite     infinite     infinite    +4.22569e+00 
+
+Expanded_heat_conductance_matrix_chc[i][j]
+[W/(m*K)]
+
++3.63923e+00 -1.07412e+00 +0.00000e+00 -2.56511e+00 +0.00000e+00 +0.00000e+00 +0.00000e+00 +0.00000e+00 
+-1.07412e+00 +3.54329e+04 -3.54318e+04 +0.00000e+00 +0.00000e+00 +0.00000e+00 +0.00000e+00 +0.00000e+00 
++0.00000e+00 -3.54318e+04 +3.54551e+04 +0.00000e+00 -2.12623e+01 -2.00691e+00 +0.00000e+00 +0.00000e+00 
+-2.56511e+00 +0.00000e+00 +0.00000e+00 +5.13023e+00 +0.00000e+00 +0.00000e+00 -2.56511e+00 +0.00000e+00 
++0.00000e+00 +0.00000e+00 -2.12623e+01 +0.00000e+00 +4.25246e+01 +0.00000e+00 +0.00000e+00 -2.12623e+01 
++0.00000e+00 +0.00000e+00 -2.00691e+00 +0.00000e+00 +0.00000e+00 +2.05159e+00 +0.00000e+00 +0.00000e+00 
++0.00000e+00 +0.00000e+00 +0.00000e+00 -2.56511e+00 +0.00000e+00 +0.00000e+00 +2.72193e+00 +0.00000e+00 
++0.00000e+00 +0.00000e+00 +0.00000e+00 +0.00000e+00 -2.12623e+01 +0.00000e+00 +0.00000e+00 +2.14989e+01 
+
+Expanded_heat_resistance_matrix_rhc[i][j]
+[m*K/W]
+
++2.78705e+00 +2.21863e+00 +2.21861e+00 +2.63523e+00 +2.19446e+00 +2.17030e+00 +2.48340e+00 +2.17030e+00 
++2.21863e+00 +2.50726e+00 +2.50724e+00 +2.09777e+00 +2.47994e+00 +2.45264e+00 +1.97691e+00 +2.45264e+00 
++2.21861e+00 +2.50724e+00 +2.50725e+00 +2.09775e+00 +2.47995e+00 +2.45265e+00 +1.97689e+00 +2.45265e+00 
++2.63523e+00 +2.09777e+00 +2.09775e+00 +2.86028e+00 +2.07491e+00 +2.05207e+00 +2.69549e+00 +2.05207e+00 
++2.19446e+00 +2.47994e+00 +2.47995e+00 +2.07491e+00 +2.49947e+00 +2.42595e+00 +1.95537e+00 +2.47195e+00 
++2.17030e+00 +2.45264e+00 +2.45265e+00 +2.05207e+00 +2.42595e+00 +2.88667e+00 +1.93385e+00 +2.39924e+00 
++2.48340e+00 +1.97691e+00 +1.97689e+00 +2.69549e+00 +1.95537e+00 +1.93385e+00 +2.90758e+00 +1.93385e+00 
++2.17030e+00 +2.45264e+00 +2.45265e+00 +2.05207e+00 +2.47195e+00 +2.39924e+00 +1.93385e+00 +2.49126e+00 
+
+RESULTS file hls.val0 created
+Tue Feb  8 14:53:40 2022

@@ -1,0 +1,19 @@
+set title 'program HELIOS - losses'
+set xrange [9.000000000000000e+07:5.100000000000000e+08]
+set yrange [1.823934042394044e+01:1.423748865665630e+02]
+set xlabel 'Hz'
+set ylabel 'W/m'
+set grid
+set border
+set pointsize 1
+plot \
+'lt0' with linespoints, \
+'li0' with linespoints, \
+'lo0' with linespoints, \
+'sdp0' with linespoints, \
+'sdm0' with linespoints
+pause -1 '[ hit return to continue ]'
+
+# 2D-gnuplot system file 'gpl.lss0'
+# created:Tue Feb  8 14:53:40 2022
+# EOF

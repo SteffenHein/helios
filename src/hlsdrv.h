@@ -296,7 +296,7 @@ short heliosdrv( int argn, char **args )
 
             fprintf( stdout, CLEAR_LINE );
             fprintf( stdout, "\n ======================================="
-                             "=======================================" );
+                                "=======================================" );
             nseconds = time( timer );
             strcpy( timeptr, ctime( &nseconds ));
             fprintf( stdout, "\n ");
@@ -314,8 +314,8 @@ short heliosdrv( int argn, char **args )
 /*............................................................................*/
 	   case 3:
 	    fprintf( stdout, " %s",\
-            "======================================="\
-	    "=======================================" );
+               "======================================="\
+	       "=======================================" );
             PRBLDCLR( "" );
 	    fprintf( stdout, "\n Call: +49+8061.936362 or" );
             fprintf( stdout, "\n email: contact@sfenx.de" );
@@ -397,7 +397,7 @@ short heliosdrv( int argn, char **args )
          };
 /*............................................................................*/
          ( csp->dfopt ) = 2; /* the next default menu option */
-         ( csp->clscr ) = 1; /* N != 0: clear screen; scroll N lines */
+         ( csp->clscr ) = 1; /* clear screen; scroll N lines */
          break;
 
         case 2:
@@ -413,7 +413,7 @@ short heliosdrv( int argn, char **args )
          };
 /*...........................................................................*/
          ( csp->dfopt ) = 3; /* the next default menu option */
-         ( csp->clscr ) = 1; /* N != 0: clear screen; scroll N lines */
+         ( csp->clscr ) = 1; /* clear screen; scroll N lines */
          break;
 
         case 3:
@@ -429,7 +429,7 @@ short heliosdrv( int argn, char **args )
          };
 /*...........................................................................*/
          ( csp->dfopt ) = 5; /* the next default menu option */
-         ( csp->clscr ) = 1; /* N != 0: clear screen; scroll N lines */
+         ( csp->clscr ) = 1; /* clear screen; scroll N lines */
          break;
 
         case 4:
@@ -461,17 +461,14 @@ short heliosdrv( int argn, char **args )
 	   break;
          };
          ( csp->dfopt ) = 5; /* the next default menu option */
-         ( csp->clscr ) = 1; /* N != 0: clear screen; scroll N lines */
+         ( csp->clscr ) = 1; /* clear screen; scroll N lines */
 	 
         break;
 
 /*...........................................................................*/
         case 5:
-
-         PRBLDCLR( "" );
-         PRNORMAL( "\n");
-
          state->cpmrk = ONE;
+
         break;
 /*...........................................................................*/
         case 6:
@@ -609,7 +606,7 @@ short heliosdrv( int argn, char **args )
    {
       strcpy( csp->cmmnt, "Welcome back to HELIOS !" );
       csp->dfopt = 0; /* the next default menu option */
-      csp->clscr = 0; /* N != 0: clear screen; scroll N lines */
+      csp->clscr = 0; /* clear screen; scroll N lines */
 
       if ( state->cpmrk == TWO )
          goto first_console;

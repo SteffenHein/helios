@@ -1,10 +1,10 @@
 [file: math.md5]
-created: Tue Feb  1 23:40:24 2022
+created: Tue Feb  8 15:30:27 2022
 -------------------------------------------------------------------------------
 MD5( .directory ) = d41d8cd98f00b204e9800998ecf8427e
 MD5( CPRODUCT.M ) = a9c918a8c9cf9d25c78fd64fc84c7fff
 MD5( GPHCONF.H ) = 37ad22b9231a3e7d260d920e4fe06542
-MD5( consts.h ) = d1a1c14f02352147681d5aa64b47fb42
+MD5( consts.h ) = 11d0236d81205438c593f7ff5b2b4a7f
 MD5( dotos.c ) = 669d857df886f57319df89b34a608e76
 MD5( dotos.h ) = 8c26c33cfb0b7a5e6df8e4d8284a4e73
 MD5( dsplay.c ) = 37b83129b9859fd1cb4d30a15f4a6890

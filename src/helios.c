@@ -521,8 +521,8 @@ int main( int argc, char **argv )
       ind = clear( );
 # endif
 
-   fprintf( stdout, "\n ======================================"
-           "========================================\n" );
+   fprintf( stdout, "\n ======================================="
+                       "=======================================\n" );
 
    nseconds = time( timer );
    tmeptr = ctime( &nseconds );

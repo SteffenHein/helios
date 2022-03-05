@@ -1,0 +1,16 @@
+set title 'program HELIOS - side heat current'
+set xrange [9.000000000000000e+07:5.100000000000000e+08]
+set yrange [9.846847040533838e+00:3.831723269013469e+01]
+set xlabel 'Hz'
+set ylabel 'W'
+set grid
+set border
+set pointsize 1
+plot \
+'shp0' with linespoints, \
+'shm0' with linespoints
+pause -1 '[ hit return to continue ]'
+
+# 2D-gnuplot system file 'gpl.shc0'
+# created:Tue Feb  8 14:53:40 2022
+# EOF

@@ -1,0 +1,21 @@
+set title 'program HELIOS - temperatures'
+set xrange [9.000000000000000e+07:5.100000000000000e+08]
+set yrange [2.742140075651265e+01:8.348413230373669e+01]
+set xlabel 'Hz'
+set ylabel '°Celsius'
+set grid
+set border
+set pointsize 1
+plot \
+'ti0' with linespoints, \
+'to0' with linespoints, \
+'tm0' with linespoints, \
+'tsdp0' with linespoints, \
+'tmxp0' with linespoints, \
+'tsdm0' with linespoints, \
+'tmxm0' with linespoints
+pause -1 '[ hit return to continue ]'
+
+# 2D-gnuplot system file 'gpl.tmp0'
+# created:Tue Feb  8 14:53:40 2022
+# EOF

@@ -77,7 +77,7 @@ typedef struct
 *//* character strings
 *//* and standard string initializers [ 80 chars ]:
 */
-# define CLEAR_LINE "\r%*s", 78, "                                          "
+# define CLEAR_LINE "\r%*s", 80, "                                          "
 # define SSTRNG  "****************************************"\
                  "**************************************** "
 

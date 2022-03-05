@@ -1,0 +1,15 @@
+set title 'program HELIOS - attenuation'
+set xrange [9.000000000000000e+07:5.100000000000000e+08]
+set yrange [1.161197236284707e-03:3.071056713338610e-03]
+set xlabel 'Hz'
+set ylabel 'dB/m'
+set grid
+set border
+set pointsize 1
+plot \
+'att0' with linespoints
+pause -1 '[ hit return to continue ]'
+
+# 2D-gnuplot system file 'gpl.att0'
+# created:Tue Feb  8 14:53:40 2022
+# EOF

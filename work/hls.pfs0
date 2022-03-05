@@ -1,0 +1,22 @@
+PLOT_FILES
+program_helios_[job_no_0]
+
+cwp0    [cw power]
+att0    [attenuation]
+shp0    [side_heat_current, pipe]
+shm0    [side_heat_current, mantle]
+ti0     [temperature, inner conductor]
+to0     [temperature, outer conductor]
+tm0     [temperature, mantle]
+tsdp0   [side temperature, pipe]
+tmxp0   [ maximum temperature, pipe ]
+tsdm0   [ side temperature, mantle ]
+tmxm0   [maximum temperature, mantle]
+lt0     [total losses]
+li0     [losses, inner conductor]
+lo0     [losses, outer conductor]
+sdp0    [side_heat_outflow_density,_pipe]
+sdm0    [side_heat_outflow_density,_mantle]
+
+graphics log created
+Tue Feb  8 14:53:40 2022

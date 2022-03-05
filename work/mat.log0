@@ -1,0 +1,74 @@
+MATERIALS-0
+HELIOS
+waveguide_temperatures_vs_admissible_power
+
+inner_conductor_metal_________________________[short_hand]:    Cu
+outer_conductor_metal_________________________[short_hand]:    Al
+dielectric____________________________________[short_hand]:   AIR
+mantle________________________________________[short_hand]:    Al
+pipe__________________________________________[short_hand]:    Al
+cooling_fluid_________________________________[short_hand]:  VOID
+
+LEGENDE [ material shorthands ] =================================
+Some_available_metals:
+
+METAL               |          SHORT_HAND
+-----------------------------------------
+copper              |                  Cu
+aluminium           |                  Al
+brass               |                  Ms
+gold                |                  Au
+invar               |                 Inv
+nickel              |                  Ni
+steel               |                  St
+
+Some_available_dielectrics:
+
+DIELECTRIC          |          SHORT_HAND
+-----------------------------------------
+AL2O3_[99.5%]       |                AL99
+AL2O3_[95.0%]       |                AL95
+teflon              |                PTFE
+polyethylene        |                  PE
+polystyrene         |                  PS
+polyuretane         |                  PU
+quartz              |                  Qu
+
+Some_[mantle_and_pipe]_solid_materials:
+
+MATERIAL            |          SHORT_HAND
+-----------------------------------------
+teflon              |                PTFE
+polyethylene        |                  PE
+polystyrene         |                  PS
+polyuretane         |                  PU
+
+Some_available_cooling_fluids:
+
+COOLING_FLUID       |          SHORT_HAND
+-----------------------------------------
+air                 |                 AIR
+water               |                 H2O
+
+================================================================================
+
+OPERATIONS-0
+HELIOS
+waveguide_temperatures_vs_admissible_power
+
+computation_mode
+
+rectangular_/_coaxial_waveguide______________________[0/1]:     1
+fixed_CW_power_/_inner_temperature_limit_____________[0/1]:     0
+solid_/_gas_[or_any_fluid]_dielectric________________[0/1]:     1
+free_/_forced_convection_within_waveguide____________[0/1]:     0
+fixed_mantle_temperature_/_convection________________[0/1]:     1
+free_/_forced_convection_in_environment______________[0/1]:     0
+additional_internal_inner_conductor_cooling__________[0/1]:     0
+mantle/_pipe/_both/_no/_side_temperatures_fixed__[1/2/3/0]:     3
+mantle/_pipe/_both/_no/_side_heat_outflow_fixed__[1/2/3/0]:     0
+number_of_frequency_points______________________[0<N<=100]:    20
+
+HELIOS materials input file mat.log0 created:
+Tue Feb  8 15:06:43 2022
+ÿ

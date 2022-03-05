@@ -1,0 +1,15 @@
+set title 'program HELIOS - cw_power'
+set xrange [9.000000000000000e+07:5.100000000000000e+08]
+set yrange [1.904761904761905e+02:2.100000000000000e+02]
+set xlabel 'Hz'
+set ylabel 'kW'
+set grid
+set border
+set pointsize 1
+plot \
+'cwp0' with linespoints
+pause -1 '[ hit return to continue ]'
+
+# 2D-gnuplot system file 'gpl.cwp0'
+# created:Tue Feb  8 14:53:40 2022
+# EOF
