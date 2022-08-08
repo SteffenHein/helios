@@ -1,0 +1,109 @@
+HELIOS RESULTS FILE 'hls.val3'
+[program helios, job no 3]
+================================================================================
+Diameters_and_materials
+
+Mantle_____________________[Al]:  3.550000000e-01 m
+Outer_conductor__________[ELSE]:  3.450000000e-01 m  [ AIR-cooled ]
+Inner_conductor__________[ELSE]:  2.090000000e-01 m  [ AIR-cooled ]
+Pipe_____________________[VOID]:  9.600000000e-02 m
+
+Length_of_cooled_section(s)
+
+Dielectric________________[AIR]:  1.000000000e+01 m
+
+Characteristic_line_impedance
+3.004279399e+01 Ohm
+
+Operating_conditions
+
+Frequency______________________:  5.500000000e+07 Hz
+CW_power________________[limit]:  5.000000000e+06 W
+
+Temperatures
+
+Environment___[free_convection]:  4.000000000e+01 °C  [ AIR ]
+Mantle_________________________:  6.160255819e+01 °C
+Outer_conductor________________:  6.160676394e+01 °C
+Dielectric______________[fixed]:  5.000000000e+01 °C  [ AIR, 1.69e+00 m/sec ]
+Inner_conductor________________:  8.989877830e+01 °C
+
+Differential_losses_[dQ/dz_at_power_insertion_point]
+
+Outer_conductor__________[ELSE]:  4.868701651e+02 W/m
+Inner_conductor__________[ELSE]:  5.585984291e+02 W/m
+Dielectric________________[AIR]:  0.000000000e+00 W/m
+Total__________________________:  1.045468594e+03 W/m
+
+Attenuation
+
+9.080824829e-04 dB/m
+2.090937188e-04 Neper/m
+
+Resistivities
+
+Outer_conductor__________[ELSE]:  4.630015709e-08 Ohm*m
+Inner_conductor__________[ELSE]:  2.236711353e-08 Ohm*m
+
+================================================================================
+Loss_induced_heat_currents
+
+hcrr[00] =  5.585984291e+02 W/m
+hcrr[01] =  4.868701651e+02 W/m
+hcrr[02] =  0.000000000e+00 W/m
+
+Node_temperatures
+
+temp[00] =  8.989877830e+01 °C  [ =  3.630487783e+02 K ]
+temp[01] =  6.160676394e+01 °C  [ =  3.347567639e+02 K ]
+temp[02] =  6.160255819e+01 °C  [ =  3.347525582e+02 K ]
+
+Base_temperatures
+
+temp[03] =  5.000000000e+01 °C  [ =  3.231500000e+02 K ]
+temp[04] =  5.000000000e+01 °C  [ =  3.231500000e+02 K ]
+temp[05] =  4.000000000e+01 °C  [ =  3.131500000e+02 K ]
+
+Nusselt_and_Reynolds_numbers
+
+Dielectic______________________: Nu = 1.037063055e+02 | Re = 5.056691587e+04
+
+================================================================================
+Mutual_heat_conductances_[W/(m*K)]
+
++1.39440e+01 +7.95121e-02 +0.00000e+00 +0.00000e+00 +0.00000e+00 +0.00000e+00 
++7.95121e-02 +2.30176e+01 +5.27752e+04 +0.00000e+00 +0.00000e+00 +0.00000e+00 
++0.00000e+00 +5.27752e+04 +1.02747e+01 +0.00000e+00 +0.00000e+00 +0.00000e+00 
++0.00000e+00 +0.00000e+00 +0.00000e+00 +1.72164e+00 +0.00000e+00 +0.00000e+00 
++0.00000e+00 +0.00000e+00 +0.00000e+00 +0.00000e+00 +8.26737e-01 +0.00000e+00 
++0.00000e+00 +0.00000e+00 +0.00000e+00 +0.00000e+00 +0.00000e+00 +7.08797e-01 
+
+Mutual_heat_resistances_[(m*K)/W]
+
++7.17154e-02 +1.25767e+01  infinite     infinite     infinite     infinite    
++1.25767e+01 +4.34450e-02 +1.89483e-05  infinite     infinite     infinite    
+ infinite    +1.89483e-05 +9.73265e-02  infinite     infinite     infinite    
+ infinite     infinite     infinite    +5.80841e-01  infinite     infinite    
+ infinite     infinite     infinite     infinite    +1.20957e+00  infinite    
+ infinite     infinite     infinite     infinite     infinite    +1.41084e+00 
+
+Expanded_heat_conductance_matrix_[W/(m*K)]
+
++1.40235e+01 -7.95121e-02 +0.00000e+00 -1.39440e+01 +0.00000e+00 +0.00000e+00 
+-7.95121e-02 +5.27983e+04 -5.27752e+04 +0.00000e+00 -2.30176e+01 +0.00000e+00 
++0.00000e+00 -5.27752e+04 +5.27854e+04 +0.00000e+00 +0.00000e+00 -1.02747e+01 
+-1.39440e+01 +0.00000e+00 +0.00000e+00 +1.56657e+01 +0.00000e+00 +0.00000e+00 
++0.00000e+00 -2.30176e+01 +0.00000e+00 +0.00000e+00 +2.38444e+01 +0.00000e+00 
++0.00000e+00 +0.00000e+00 -1.02747e+01 +0.00000e+00 +0.00000e+00 +1.09835e+01 
+
+Expanded_heat_resistance_matrix_[(m*K)/W]
+
++6.21951e-01 +3.20989e-02 +3.20985e-02 +5.53599e-01 +3.09860e-02 +3.00271e-02 
++3.20989e-02 +6.50741e-01 +6.50733e-01 +2.85713e-02 +6.28178e-01 +6.08739e-01 
++3.20985e-02 +6.50733e-01 +6.50744e-01 +2.85709e-02 +6.28170e-01 +6.08749e-01 
++5.53599e-01 +2.85713e-02 +2.85709e-02 +5.56593e-01 +2.75807e-02 +2.67272e-02 
++3.09860e-02 +6.28178e-01 +6.28170e-01 +2.75807e-02 +6.48337e-01 +5.87633e-01 
++3.00271e-02 +6.08739e-01 +6.08749e-01 +2.67272e-02 +5.87633e-01 +6.60511e-01 
+
+RESULTS file hls.val3 created
+Fri Oct 28 22:50:36 2016

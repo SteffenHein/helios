@@ -1,0 +1,87 @@
+#[File: helios-v1.0r1/makefile.win]
+#------------------------------------------------------------------------------#
+#                                                                              #
+#  Makefile for the helios program package for WINDOWS operating system        #
+#  disposing of a gnu C compiler [ such as egcc, e.g.]                         #
+#                                                                              #
+#  (C) SHEIN; Munich, December 2021                        Steffen Hein        #
+#  [ Update: December 17, 2021 ]                        <contact@sfenx.de>     #
+#                                                                              #
+#------------------------------------------------------------------------------#
+# executable program name: helios                                              #
+#                                                                              #
+# Version required:	v1.0r1                                                 #
+# Date created:		December 17, 2021                                      #
+# Whom:			Steffen Hein <contact@sfenx.de>                        #
+#                                                                              #
+# $Id: Makefile, v1.0r1. 2021-12-17 18:54:40 helios Exp $                      #
+#                                                                              #
+#------------------------------------------------------------------------------#
+DISTNAME=	helios-${RELEASE}
+RELEASE=	v1.0r1
+#CATEGORIES=	cad
+#MASTER_SITES=	ftp://steffen-hein.org/pub/cad/
+
+#MAINTAINER=	Steffen Hein <contact@sfenx.de>
+
+#MAKEFILE=	makefile.win
+#NO_PACKAGE=	"must provide without modifications"
+#------------------------------------------------------------------------------#
+# The executable program name [modify, if wanted]:
+HELIOS_EXEC=	helios.exe
+#------------------------------------------------------------------------------#
+# The executable program will be installed into ${HELIOS_RESD}bin
+#HELIOS_RESD=	/usr/local/
+HELIOS_RESD=	${HOME}/
+#------------------------------------------------------------------------------#
+#
+# Compiler flags:
+#	-ansi		-- stick to ANSI C
+#	-g		-- debugging mode
+#	-Wall		-- low level warnings 
+#	-O		-- optimization level 1
+#	-O3		-- optimization level 3
+#       -ffast-math	-- fast floating point operations [ can pose problems
+#                          in conjunction with other optimizations ]
+#
+#------------------------------------------------------------------------------#
+#
+# The C compiler
+#CCOMPILER=	/usr/local/bin/egcc
+#CCOMPILER=	/usr/local/bin/gcc
+#CCOMPILER=	/usr/bin/gcc
+#CCOMPILER=	gcc
+CCOMPILER=	cc
+#
+# Compiler options [ please modify ]:
+HELIOS_CC=	${CCOMPILER} -ansi -Wall
+#
+#
+# using flags [ please modify ]:
+#HELIOS_CFLG=	-ffast-math -D_Ansi -D_CCBUG # tentative [ not together
+#                                            # with O, O2, O3 ] 
+HELIOS_CFLG=	-O2 -D_Wine -D_CCBUG -D_Forced
+#
+#
+# Find sources in directory: [Define path]
+HELIOS_SRC=	./src/
+HELIOS_CONF=	./
+HELIOS_MATH=	./math/
+HELIOS_OBJ=	./objects/
+HELIOS_TOOLS=	./tools/
+HELIOS_DEFLT=	./default/
+#
+# Compile into directory: [Define path]
+HELIOS_BIN=	./bin/
+#
+# Install into directory: [Define path]
+HELIOS_INST=	${HELIOS_RESD}bin/
+#
+# libraries: 
+# HELIOS_LIB=	-lm
+HELIOS_LIB=	-lm -lncurses
+#------------------------------------------------------------------------------#
+.SILENT:
+#------------------------------------------------------------------------------#
+include mk.win
+#------------------------------------------------------------------------------#

@@ -1,0 +1,94 @@
+HELIOS RESULTS FILE 'hls.val2'
+[program helios, job no 2]
+================================================================================
+Dimensions_and_materials
+
+Waveguide_length________[«WGL»]:  1.600000000e-01 m
+
+Mantle_____________________[Al]:
+Outer_width = 8.200000000e-02 m | outer_height = 3.800000000e-02 m
+Waveguide__________________[Cu]:
+Inner_width = 7.400000000e-02 m | inner_height = 3.200000000e-02 m
+
+TE10_mode_characteristic_impedance
+3.845852183e+02 Ohm
+
+Operating_conditions
+
+Frequency______________________:  1.000000000e+10 Hz
+CW_power________________[limit]:  3.000000000e+04 W
+Heat_flow_to_one_side__[mantle]:  1.855110166e+01 W
+
+Temperatures
+
+Environment___[free_convection]:  3.000000000e+01 °C  [ AIR ]
+Mantle_________________________:  5.826697935e+01 °C
+Waveguide______________________:  5.551306316e+01 °C
+Side_temperature,_mantle[«STM»]:  5.000000000e+01 °C  [ fixed ]
+dT/dL(mantle)_____________[L=0]:  7.254664059e+01 °C/m
+dT/dL(mantle)_*_WGL_+_STM_[L=0]:  6.160746249e+01 °C
+
+Differential_losses_[dQ/dz_at_power_insertion_point]
+
+Dielectric________________[AIR]:  0.000000000e+00 W/m
+Skin_effect________________[Cu]:  1.450275345e+02 W/m
+Total__________________________:  1.450275345e+02 W/m
+
+Side_heat_flow_densities
+
+Effective_flow_density_[mantle]:  1.159443854e+02 W/m
+Limit_flow_density_______[L->0]:  1.627946615e+02 W/m
+
+Attenuation
+
+2.099488599e-02 dB/m
+4.834251151e-03 Neper/m
+
+Resistivities
+
+Metal_resistivity__________[Cu]:  1.922575923e-08 Ohm*m
+Surface_resistance_____________:  2.755000094e-02 Ohm
+
+================================================================================
+Loss_induced_heat_currents
+
+hcrr[00] =  2.908314824e+01 W/m
+hcrr[01] =  0.000000000e+00 W/m
+
+Node_temperatures
+
+temp[00] =  5.551306316e+01 °C  [ =  3.286630632e+02 K ]
+temp[01] =  5.551131957e+01 °C  [ =  3.286613196e+02 K ]
+
+Base_temperatures
+
+temp[02] = -2.731500000e+02 °C  [ =  0.000000000e+00 K ]
+temp[03] =  2.999999999e+01 °C  [ =  3.031500000e+02 K ]
+
+================================================================================
+Mutual_heat_conductances_[W/(m*K)]
+
++0.00000e+00 +1.66800e+04 +0.00000e+00 
++1.66800e+04 +1.14001e+00 +0.00000e+00 
++0.00000e+00 +0.00000e+00 +9.59365e-02 
+
+Mutual_heat_resistances_[(m*K)/W]
+
+ infinite    +5.99520e-05  infinite    
++5.99520e-05 +8.77186e-01  infinite    
+ infinite     infinite    +1.04236e+01 
+
+Expanded_heat_conductance_matrix_[W/(m*K)]
+
++1.66800e+04 -1.66800e+04 +0.00000e+00 
+-1.66800e+04 +1.66811e+04 -1.14001e+00 
++0.00000e+00 -1.14001e+00 +1.23595e+00 
+
+Expanded_heat_resistance_matrix_[(m*K)/W]
+
++1.13008e+01 +1.13007e+01 +1.04236e+01 
++1.13007e+01 +1.13007e+01 +1.04236e+01 
++1.04236e+01 +1.04236e+01 +1.04236e+01 
+
+RESULTS file hls.val2 created
+Thu Oct 27 14:05:38 2016

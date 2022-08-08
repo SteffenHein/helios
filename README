@@ -1,0 +1,42 @@
+# helios
+README
+general informations about the HELIOS program package 
+[ for detailed installation instructions see the INSTALL script ]
+--------------------------------------------------------------------------------
+HELIOS [ Heat and Electric Losses In Ordinary wave guiding Structures ],
+release v1.0r1 
+
+(C) SHEIN; Munich, December 2021                            Steffen Hein
+[ Update: December 27, 2021 ]                            <contact@sfenx.de>
+--------------------------------------------------------------------------------
+The HELIOS program package provides a set of numerical routines for computing
+resistive losses, heat dissipation, temperatures and radio frequency CW power
+limits for horizontal rectangular waveguides and coaxial lines.
+The underlying algorithms evaluate the radial heat transfer by conduction, 
+convection and radiation for given media [ solid lossy dielectrics or gases
+under variable pressure ] and derive inner temperature maxima, or transmitted
+CW power limits for steady state operation.
+   Note that the Newton-Raphson algorithm of this program is sensitive to
+the chosen initial conditions, especially when the thermal resistances have
+large scale differences. This is the case, for example, when the convective
+thermal resistance between a coaxial inner and outer conductor is very much 
+greater than the thermal resistance of the jacket (i.e. the outer conductor's
+"mantle" ). In this case it can be helpful to artificially increase a small
+thermal resistance slightly in order to reduce the scale differences. 
+As a rule, this does not have a major impact on the calculated critical
+temperature maxima and CW power limits, as these depend essentially on the 
+large thermal resistances. 
+--------------------------------------------------------------------------------
+The underlying algorithms rely on theoretical and empirical results mostly
+found in these 
+
+REFERENCES
+
+[1] Prandtl, Fuehrer durch die Stroemungslehre 
+[2] Beckmann, Forschung Bd.2, Heft 6 (1931); pp.170-178 
+[3] Groeber/Erk/Grigull, Die Grundgesetze der Waermeuebertragung, Springer 1981
+-------------------------------------------------------------------------------
+Thanks for using HELIOS
+						Steffen Hein
+						Munich, Germany
+						mailto: contact@sfenx.de

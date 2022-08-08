@@ -1,0 +1,8 @@
+[directory: objects] 
+-------------------------------------------------------------------------------
+22 February 2002 
+SPINNER GmbH., Munich
+Steffen Hein <s.hein@spinner.de>
+-------------------------------------------------------------------------------
+In this directory the CODIS object files reside past compilation and prior to
+cleaning.

@@ -1,0 +1,14 @@
+cca59e4c20a8adc2dd8e63eec90a1381  default.sha256
+b54c08d04ad79757add55b9227abd66b  deflt1_mat.h
+5fc5697bcffb4de59fb98a7ab84925b0  deflt1_opr.h
+7c9af80f1e65bef0df18009043acb9ff  deflt1_par.h
+a8f49b34b0f4a298d591229a7a2aef4b  deflt1_wg_par.h
+b54c08d04ad79757add55b9227abd66b  deflt_coax_mat.h
+118eede55661d6dd6df992511c25034d  deflt_coax_opr.h
+2d7a85c259270daf044226490ea8a593  deflt_coax_par.h
+b54c08d04ad79757add55b9227abd66b  deflt_mat.h
+5fc5697bcffb4de59fb98a7ab84925b0  deflt_opr.h
+7c9af80f1e65bef0df18009043acb9ff  deflt_par.h
+b54c08d04ad79757add55b9227abd66b  deflt_wg_mat.h
+547280d351e293e37e8d218feb057368  deflt_wg_opr.h
+7c9af80f1e65bef0df18009043acb9ff  deflt_wg_par.h

@@ -1,0 +1,10 @@
+c79b38e51ebee3b7ef24443be155411e  hls.val-sample-coax
+363622431cc5223ad62cf18b7575634d  hls.val-sample-rectangular-waveguide
+cb5d771206164905d76e7940f3a435ea  hls.val-sample-vorITER
+41941a40bdd0720d6a9ccf9374b93dd6  par.init1
+f5826081ca2e8ecbc36faf828a0700d6  par.init2
+25baa2a1ecb289faddaf5f8e83015f2f  par.init3
+41941a40bdd0720d6a9ccf9374b93dd6  par.log-sample-coax
+f5826081ca2e8ecbc36faf828a0700d6  par.log-sample-rectangular-waveguide
+25baa2a1ecb289faddaf5f8e83015f2f  par.log-sample-vorITER
+54a8934a2ec845c0c67141d3b45b7c9b  samples.sha256

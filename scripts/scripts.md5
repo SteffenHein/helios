@@ -1,0 +1,13 @@
+21fd333d40fb573e0c251a18b1caad9c  archvs.pl
+e0e06f944d440fa8b95a87103af6f975  diff.csh
+44d1e88faa4339b3a6987901e703e402  diff2next.csh
+2105fbd4de3d6049be4d0dcbbfc5baa0  distinfo
+e6e905ad23bca43accb424d560ff762e  dplct.csh
+32199de2f2a7788dcc8971b5238aac78  helios.csh
+d9a28a1b1e7fc8cc20a3d0a8d7a2079e  log2init.csh
+8cfe383183cc1aed39d477845e483739  md5sum.sh
+4c446763df8aeb5abec64af7816e7422  new-rls
+bfb15e46dd04b895bf8dd806b6d313a1  new-spcf.sh
+8240e7a74d59540f44d7bff4fc033a44  scripts.sha256
+8da6d5c4bf69ac20b85c9a5c32f978a5  sha256sum.sh
+a687c874970911052f736674bfa66450  subst.pl

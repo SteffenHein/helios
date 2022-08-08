@@ -1,0 +1,13 @@
+fa907a612f1b2159f133ff4fde429cff  CONFIG-v1.0r1
+b8a83b89810fb00e0e62c71b77c10c7c  CONFIG.H
+b58dda9fcc9d990da73be1a3e4cb92cf  INSTALL
+9acfa73c000b3e15ad0fc7bf5178b278  LICENSE
+f4f1ac8c47487484e55bab53cbe636d2  Makefile
+9e5519e55d20c6be0fb4f154175d8c6f  README
+174f54e8b9041ac6ec177ad55a919c64  SETUP
+d41d8cd98f00b204e9800998ecf8427e  cc-messages
+1dbba378f64c37b6b72ae3eb9e8a012e  helios-v1.0r1.sha256
+f4f1ac8c47487484e55bab53cbe636d2  makefile.gnu
+c00af7baefe887ae4cf89e6f0f38205b  makefile.win
+7ee6afccf9dfc8c376813e644a93d9da  mk.gnu
+c79a4108c34a8e155632c2583491f083  mk.win

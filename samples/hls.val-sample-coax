@@ -1,0 +1,103 @@
+HELIOS RESULTS FILE 'hls.val1'
+[program helios, job no 1]
+================================================================================
+Diameters_and_materials
+
+Waveguide_length________[«WGL»]:  4.000000000e-01 m
+
+Mantle_____________________[Al]:  2.400000000e-01 m
+Outer_conductor____________[Al]:  2.300000000e-01 m
+Inner_conductor____________[Cu]:  9.988000000e-02 m
+Pipe_______________________[Al]:  9.700000000e-02 m
+
+Characteristic_line_impedance
+4.999697120e+01 Ohm
+
+Operating_conditions
+
+Frequency______________________:  5.000000000e+08 Hz
+CW_power________________[limit]:  2.000000000e+05 W
+Heat_flow_to_one_side__[mantle]:  4.899060321e+01 W
+
+Temperatures
+
+Environment___[free_convection]:  3.000000000e+01 °C  [ AIR ]
+Mantle_________________________:  4.105971158e+01 °C
+Outer_conductor________________:  4.106014323e+01 °C
+Inner_conductor________________:  1.031444189e+02 °C
+Side_temperature,_mantle[«STM»]:  3.000000000e+01 °C  [ fixed ]
+dT/dL(mantle)_____________[L=0]:  1.175808776e+01 °C/m
+dT/dL(mantle)_*_WGL_+_STM_[L=0]:  3.470323510e+01 °C
+
+Differential_losses_[dQ/dz_at_power_insertion_point]
+
+Outer_conductor____________[Al]:  5.277756330e+01 W/m
+Inner_conductor____________[Cu]:  8.481353117e+01 W/m
+Dielectric________________[AIR]:  0.000000000e+00 W/m
+Total__________________________:  1.375910945e+02 W/m
+
+Side_heat_flow_densities
+
+Effective_flow_density_[mantle]:  1.224765080e+02 W/m
+Limit_flow_density_______[L->0]:  5.208416218e+01 W/m
+
+Attenuation
+
+2.987752654e-03 dB/m
+6.879554724e-04 Neper/m
+
+Resistivities
+
+Outer_conductor____________[Al]:  4.604174203e-08 Ohm*m
+Inner_conductor____________[Cu]:  2.242253767e-08 Ohm*m
+
+================================================================================
+Loss_induced_heat_currents
+
+hcrr[00] =  8.481353117e+01 W/m
+hcrr[01] = -6.969894471e+01 W/m
+hcrr[02] =  0.000000000e+00 W/m
+
+Node_temperatures
+
+temp[00] =  1.031444189e+02 °C  [ =  3.762944189e+02 K ]
+temp[01] =  3.737356764e+01 °C  [ =  3.105235676e+02 K ]
+temp[02] =  3.737314106e+01 °C  [ =  3.105231411e+02 K ]
+
+Base_temperatures
+
+temp[03] = -2.731500000e+02 °C  [ =  0.000000000e+00 K ]
+temp[04] = -2.731500000e+02 °C  [ =  0.000000000e+00 K ]
+temp[05] =  2.999999997e+01 °C  [ =  3.031500000e+02 K ]
+
+================================================================================
+Mutual_heat_conductances_[W/(m*K)]
+
++0.00000e+00 +1.28953e+00 +0.00000e+00 +0.00000e+00 
++1.28953e+00 +0.00000e+00 +3.54318e+04 +0.00000e+00 
++0.00000e+00 +3.54318e+04 +2.04995e+00 +0.00000e+00 
++0.00000e+00 +0.00000e+00 +0.00000e+00 +4.98584e-02 
+
+Mutual_heat_resistances_[(m*K)/W]
+
+ infinite    +7.75476e-01  infinite     infinite    
++7.75476e-01  infinite    +2.82232e-05  infinite    
+ infinite    +2.82232e-05 +4.87816e-01  infinite    
+ infinite     infinite     infinite    +2.00568e+01 
+
+Expanded_heat_conductance_matrix_[W/(m*K)]
+
++1.28953e+00 -1.28953e+00 +0.00000e+00 +0.00000e+00 
+-1.28953e+00 +3.54331e+04 -3.54318e+04 +0.00000e+00 
++0.00000e+00 -3.54318e+04 +3.54339e+04 -2.04995e+00 
++0.00000e+00 +0.00000e+00 -2.04995e+00 +2.09981e+00 
+
+Expanded_heat_resistance_matrix_[(m*K)/W]
+
++2.13201e+01 +2.05446e+01 +2.05446e+01 +2.00568e+01 
++2.05446e+01 +2.05446e+01 +2.05446e+01 +2.00568e+01 
++2.05446e+01 +2.05446e+01 +2.05446e+01 +2.00568e+01 
++2.00568e+01 +2.00568e+01 +2.00568e+01 +2.00568e+01 
+
+RESULTS file hls.val1 created
+Thu Oct 27 14:05:36 2016

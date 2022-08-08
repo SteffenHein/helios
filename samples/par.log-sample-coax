@@ -1,0 +1,114 @@
+PARAMETERS-1
+helios
+waveguide_temperatures_vs_admissible_power
+
+parameters
+[INTERNATIONAL_UNITS;_material_constants_at_0_deg_Celsius]
+
+s001=Starting_[lower_or_upper]_frequency______________[Hz]:   1.000000000000e+08
+s002=Stopping_[upper_or_lower]_frequency______________[Hz]:   5.000000000000e+08
+s003=Transmitted_CW_power__________________________[Watts]:   2.000000000000e+05
+s004=Temperature,_environment________________[deg_Celsius]:   3.000000000000e+01
+s005=Temperature,_waveguide_mantle_____________[dependent]:   5.000000000000e+01
+s006=Temperature,_inner_conductor_______[initial_value;_C]:   5.500000000000e+01
+s007=Pressure,_environment__________________[bar_absolute]:   1.000000000000e+00
+s008=Pressure_in_waveguide__________________[bar_absolute]:   1.000000000000e+00
+s009=Heat_radiation_emissivity,_mantle__________________[]:   2.000000000000e-02
+s010=Heat_radiation_emissivity,_outer_conductor_________[]:   2.000000000000e-02
+s011=Heat_radiation_emissivity,_inner_conductor_________[]:   2.000000000000e-02
+s012=Diameter,_outer_conductor_________________________[m]:   2.300000000000e-01
+s013=Diameter,_inner_conductor_________________________[m]:   9.988000000000e-02
+s014=Diameter,_mantle_[outer_tube_diameter]____________[m]:   2.400000000000e-01
+s015=Diameter,_pipe_[inner_tube_diameter]______________[m]:   9.700000000000e-02
+s016=Form_factor,_inner_conductor_______________________[]:   1.000000000000e+00
+s017=Form_factor,_outer_conductor_______________________[]:   1.000000000000e+00
+s018=Electric_resistivity,_inner_conductor_____[dependent]:   1.550000000000e-08
+s019=Temperature_coefficient_of_the_latter_____[dependent]:   4.330000000000e-03
+s020=Relative_permeability,_inner_conductor____[dependent]:   1.000000000000e+00
+s021=Heat_conductivity,_inner_conductor________[dependent]:   3.930000000000e+02
+s022=Temperature_coefficient_of_the_latter_____[dependent]:   0.000000000000e+00
+s023=Density,_inner_conductor__________________[dependent]:   8.930000000000e+03
+s024=Heat_capacity_[cp],_inner_conductor_______[dependent]:   3.929500000000e+02
+s025=Electric_resistivity,_outer_conductor_____[dependent]:   3.995000000000e-08
+s026=Temperature_coefficient_of_the_latter_____[dependent]:   4.080000000000e-03
+s027=Relative_permeability,_outer_conductor____[dependent]:   1.000000000000e+00
+s028=Heat_conductivity,_outer_conductor________[dependent]:   2.370000000000e+02
+s029=Temperature_coefficient_of_the_latter_____[dependent]:   0.000000000000e+00
+s030=Density,_outer_conductor__________________[dependent]:   2.700000000000e+03
+s031=Heat_capacity_[cp],_outer_conductor_______[dependent]:   9.190300000000e+02
+s032=Relative_permittivity,_dielectric_________[dependent]:   1.000600000000e+00
+s033=Dielectric_loss_factor____________________[dependent]:   0.000000000000e+00
+s034=Relative_permeability,_dielectric_________[dependent]:   1.000000000000e+00
+s035=Magnetic_loss_factor______________________[dependent]:   0.000000000000e+00
+s036=Heat_conductivity,_dielectric_____________[dependent]:   2.430000000000e-02
+s037=Temperature_coefficient_of_the_latter_____[dependent]:   7.100000000000e-05
+s038=Density,_dielectric_______________________[dependent]:   1.286200000000e+00
+s039=Heat_capacity_[cp],_dielectric____________[dependent]:   1.004950000000e+03
+s040=Cinematic_viscosity,_dielectric___________[dependent]:   1.330000000000e-05
+s041=Temperature_coefficient_of_the_latter_____[dependent]:   9.760000000000e-08
+s042=Prandtl_number,_dielectric________________[dependent]:   7.110000000000e-01
+s043=Heat_conductivity,_mantle_________________[dependent]:   2.400000000000e+02
+s044=Temperature_coefficient_of_the_latter_____[dependent]:   0.000000000000e+00
+s045=Heat_conductivity,_pipe___________________[dependent]:   2.400000000000e+02
+s046=Temperature_coefficient_of_the_latter_____[dependent]:   0.000000000000e+00
+s047=Heat_conductivity,_cooling_fluid___________[inactive]:   2.000000000000e+00
+s048=Temperature_coefficient_of_the_latter______[inactive]:   0.000000000000e+00
+s049=Density,_cooling_fluid_____________________[inactive]:   1.000000000000e+00
+s050=Heat_capacity_[cp],_cooling_fluid__________[inactive]:   1.000000000000e+00
+s051=Cinematic_viscosity,_cooling_fluid_________[inactive]:   1.330000000000e-05
+s052=Temperature_coefficient_of_the_latter______[inactive]:   9.760000000000e-08
+s053=Prandtl_number,_cooling_fluid______________[inactive]:   7.110000000000e-01
+s054=Temperature,_gas_flowing_in_waveguide______[inactive]:   2.000000000000e+01
+s055=Flow_[liter/min],_that_gas_________________[inactive]:   0.000000000000e+00
+s056=Nusselt_number,_that_gas_flow______________[inactive]:   3.600000000000e+00
+s057=Temperature,_cooling_fluid_________________[inactive]:   2.000000000000e+01
+s058=Pressure,_cooling_fluid____________________[inactive]:   1.000000000000e+00
+s059=Flow_[liter/min],_cooling_fluid____________[inactive]:   0.000000000000e+00
+s060=Nusselt_number,_cooling_fluid______________[inactive]:   3.600000000000e+00
+s061=Flow_velocity_[m/s],_air_in_environment____[inactive]:   0.000000000000e+00
+s062=Nusselt_number,_that_air_flow______________[inactive]:   3.600000000000e+00
+s063=Length_of_cooled_section(s),_dielectric____[inactive]:   1.000000000000e+00
+s064=Length_of_cooled_section(s),_pipe__________[inactive]:   1.000000000000e+00
+s065=Waveguide_length__________________________________[m]:   4.000000000000e-01
+s066=Fixed_side_temperature,_mantle__________[deg_Celsius]:   3.000000000000e+01
+s067=Heat_outflow_on_this_side,_mantle__________[inactive]:   0.000000000000e+00
+s068=Fixed_heat_inflow_[opposite_side],_mantle_________[W]:   0.000000000000e+00
+s069=Side_temperature,_pipe_____________________[inactive]:   3.000000000000e+01
+s070=Heat_outflow_on_this_side,_pipe____________[inactive]:   0.000000000000e+00
+s071=Fixed_heat_inflow_[opposite_side],_pipe____[inactive]:   0.000000000000e+00
+
+================================================================================
+
+MATERIALS-1
+helios
+waveguide_temperatures_vs_admissible_power
+
+inner_conductor_metal_________________________[short_hand]:    Cu
+outer_conductor_metal_________________________[short_hand]:    Al
+dielectric____________________________________[short_hand]:   AIR
+mantle________________________________________[short_hand]:    Al
+pipe__________________________________________[short_hand]:    Al
+cooling_fluid_________________________________[short_hand]:  VOID
+
+================================================================================
+
+OPERATIONS-1
+helios
+waveguide_temperatures_vs_admissible_power
+
+computation_mode
+
+rectangular_/_coaxial_waveguide______________________[0/1]:     1
+fixed_CW_power_/_inner_temperature_limit_____________[0/1]:     0
+solid_/_gas_[or_any_fluid]_dielectric________________[0/1]:     1
+free_/_forced_convection_within_waveguide____________[0/1]:     0
+fixed_wall_temperature_/_convection__________________[0/1]:     1
+free_/_forced_convection_in_environment______________[0/1]:     0
+additional_internal_inner_conductor_cooling__________[0/1]:     0
+mantle/_pipe/_both/_no/_side_temperatures_fixed__[1/2/3/0]:     1
+mantle/_pipe/_both/_no/_side_heat_outflow_fixed__[1/2/3/0]:     0
+number_of_frequency_points______________________[0<N<=100]:    20
+
+HELIOS input parameter file par.log0 created:
+Thu Oct 27 14:05:33 2016
+ÿ
